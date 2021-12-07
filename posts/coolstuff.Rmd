@@ -2,7 +2,7 @@
 title: "Four ways to create an empty folder structure"
 author: "Mathias Weidinger"
 date: "2021-11-21"
-draft:true
+draft: true
 output: html_document
 ---
 
