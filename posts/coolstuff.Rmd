@@ -1,7 +1,8 @@
 ---
-title: "How to use RMarkdown for blogging"
+title: "Four ways to create an empty folder structure"
 author: "Mathias Weidinger"
-date: "2021-09-18"
+date: "2021-11-21"
+draft:true
 output: html_document
 ---
 
@@ -9,22 +10,39 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Mark
+Remember the times when, as a kid, you were only allowed to go out to play if you had cleared up the chaos in your room first? While we might not have appreciated our parents' persistence on the matter all too much back then (I sure did not), I think most people would agree - once they're adults, that is - that it helped them with building good habits. Today's post is a little bit like that parental insistence; a reminder to keep things tidy, or be it on our computers.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## Minimalism vs Organization
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+A few years ago, Marie Kondo - Japan's "Queen of clean" - had become popular outside Japan and seemingly everyone had suddenly subscribed to some form of "minimalism" as a lifestyle choice. On youtube, minimalist content creators fed the (at times curious, at times outright bizarre) trend of listing everything they own (e.g. [here](https://www.youtube.com/watch?v=TzaG0VGwCT0) and [here](https://www.youtube.com/watch?v=shLASFm-4_4)),  #minimalism trended on twitter, the *capsule wardrobe* took over instagram by storm, and even Netflix produced a full-length movie entitled [The Minimalists: Less is Now](https://www.youtube.com/watch?v=jn-xbOCZOiQ). Although the trend went quite far for some of its proponents, the director of said movie, minimalism youtuber Matt D'avella, recently reminded his followers that ["they didn't have to marry a minimalist"](https://www.youtube.com/watch?v=REJqTXh8IwY) to be good people. Reassuring!
 
-```{r cars}
-summary(cars)
+I, for my part, couldn't wait to take this new-found panacea for all the world's problems and apply it to my digital life. Devices like smart phones and computers are at the heart of most people's professional as well as private lives and it is this constant exposure to them which makes me think that books like Cal Newport's [Digital Minimalism](https://www.calnewport.com/books/digital-minimalism/) deserve (at least) the same attention as the likes of Matt D'Avella or Marie Kondo. Not that there is anything wrong with decluttering the physical world around us - in fact, it has been eye-opening everytime I've done it.
+
+Rather, I think that computers are a great place to experiment with structure. I have found that structure is the most useful tool when it comes to simplifying my life. At that, it is sometimes overlooked when we reduce minimalism to simply owning *less* stuff. It's not only what we own (or how much of it), but also what we do with it. The way we assemble our possessions in the space around us not only affects how are accessible they are to us in everyday life, but also how easily - and often - we will reach for and use them. Keeping things in an order that aligns well with our priorities and allows for easy and intuitive access is, thus, key to getting the most out of our belongings. Take for example a kitchen knive (I like to cook). You could of course store it anywhere, your garden shed or under your bed perhaps. But the fact that you will mostly need its services in the kitchen would make it a no-brainer to keep it in your kitchen drawer. Better yet, use a magnetic metal bar to "hang" it on your kitchen wall - in plain sight, that is. This choice maximises intuitive use, since the knive is always there when you need it, where you need it, if you need it.
+
+## So, what does this have to do with computing?
+
+Above I rambled about how organization - situating the right tools in the right place for their easy use - is key to simplifying one's life. Same goes for files on your machine. Say you are working on a new project for work. In my case,this usually involves the accumulation of code, documents, data, and many different sub-directories over time. In the last years, I have found that chaos is almost a certain outcome if I let this folder and file structure grow "organically" - as I go that is. The worst part about this, other than confusing the hell out of me, is that it makes automation a hustle. You cannot easily loop through different folders, for instance, if the files in them are not named consistently or if they are spread across different sub directories in an arbitrary way. Why then have I often ended up in situation like this? Frankly, because building a good folder structure for a project ex ante can, itself, be time consuming. What follows is an example of such a situation, and my attempt to solve it programmatically.
+
+Recently, I had to save, clean, and re-save household data for seventy different countries. For each of them, I saved four different kinds of datasets for all the years available. The file structure I was aiming for looked a lot like this for each country.
+
+```
+  0       1         2           3                                   4           
+
+/ROOT
+------/country
+------------------/raw
+------------------------------/type_1
+----------------------------------------------------------/"raw data goes here"
+------------------------------/type_2
+----------------------------------------------------------/"raw data goes here"
+------------------------------/type_3
+----------------------------------------------------------/"raw data goes here"
+------------------------------/type_4
+----------------------------------------------------------/"raw data goes here"
+------------------/processed
+------------------------------/"processed data goes here"
 ```
 
-## Including Plots
+The `/ROOT` folder includes 70 such `ROOT/country` folders. Each `ROOT/country` folder, in turn, includes a two folder.`ROOT/country/raw` is where the original, unprocessed data goes initially. The data wrangling and cleaning script(s) take data from there and output the processed datasets to `ROOT/country/processed` where they  cleaning script saves the processed data. 
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

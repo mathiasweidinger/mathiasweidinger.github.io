@@ -2,9 +2,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
+      <loc>https://mathiasweidinger.github.io/2021/coolstuff/</loc>
+      
+      <lastmod>2021-11-21T00:00:00+00:00</lastmod>
+      
+      
+      <changefreq>monthly</changefreq>
+      
+      
+      <priority>0.5</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://mathiasweidinger.github.io/</loc>
       
-      <lastmod>2021-10-05T00:00:00+00:00</lastmod>
+      <lastmod>2021-11-21T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -18,35 +32,7 @@
     <url>
       <loc>https://mathiasweidinger.github.io/posts/</loc>
       
-      <lastmod>2021-10-05T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://mathiasweidinger.github.io/2021/coolstuff-3/</loc>
-      
-      <lastmod>2021-10-05T00:00:00+00:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://mathiasweidinger.github.io/2021/coolstuff-2/</loc>
-      
-      <lastmod>2021-09-25T00:00:00+00:00</lastmod>
+      <lastmod>2021-11-21T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>
@@ -61,20 +47,6 @@
       <loc>https://mathiasweidinger.github.io/research/</loc>
       
       <lastmod>2021-09-18T17:41:59+02:00</lastmod>
-      
-      
-      <changefreq>monthly</changefreq>
-      
-      
-      <priority>0.5</priority>
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://mathiasweidinger.github.io/2021/coolstuff/</loc>
-      
-      <lastmod>2021-09-18T00:00:00+00:00</lastmod>
       
       
       <changefreq>monthly</changefreq>

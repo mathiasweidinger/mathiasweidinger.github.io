@@ -6,35 +6,14 @@
     <description>Recent content in Posts on Mathias Weidinger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 05 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mathiasweidinger.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mathiasweidinger.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Tralala</title>
-      <link>https://mathiasweidinger.github.io/2021/coolstuff-3/</link>
-      <pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://mathiasweidinger.github.io/2021/coolstuff-3/</guid>
-      <description>This is a TestThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
-    </item>
-    
-    <item>
-      <title>Lalala</title>
-      <link>https://mathiasweidinger.github.io/2021/coolstuff-2/</link>
-      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://mathiasweidinger.github.io/2021/coolstuff-2/</guid>
-      <description>This is a TestThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
-    </item>
-    
-    <item>
-      <title>How to use RMarkdown for blogging</title>
+      <title>Four ways to create an empty folder structure</title>
       <link>https://mathiasweidinger.github.io/2021/coolstuff/</link>
-      <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 21 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://mathiasweidinger.github.io/2021/coolstuff/</guid>
-      <description>R MarkThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
+      <description>Remember the times when, as a kid, you were only allowed to go out to play if you had cleared up the chaos in your room first? While we might not have appreciated our parents’ persistence on the matter all too much back then (I sure did not), I think most people would agree - once they’re adults, that is - that it helped them with building good habits.</description>
     </item>
     
   </channel>
