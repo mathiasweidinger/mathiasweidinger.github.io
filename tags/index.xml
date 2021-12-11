@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Mathias Weidinger</title>
-    <link>http://example.org/tags/</link>
+    <link>http://mathiasweidinger.github.io/tags/</link>
     <description>Recent content in Tags on Mathias Weidinger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>plot</title>
-      <link>http://example.org/tags/plot/</link>
+      <link>http://mathiasweidinger.github.io/tags/plot/</link>
       <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/plot/</guid>
+      <guid>http://mathiasweidinger.github.io/tags/plot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R Markdown</title>
-      <link>http://example.org/tags/r-markdown/</link>
+      <link>http://mathiasweidinger.github.io/tags/r-markdown/</link>
       <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/r-markdown/</guid>
+      <guid>http://mathiasweidinger.github.io/tags/r-markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>regression</title>
-      <link>http://example.org/tags/regression/</link>
+      <link>http://mathiasweidinger.github.io/tags/regression/</link>
       <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/regression/</guid>
+      <guid>http://mathiasweidinger.github.io/tags/regression/</guid>
       <description></description>
     </item>
     
