@@ -6,11 +6,11 @@
     <description>Recent content in R on Mathias Weidinger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="http://example.org/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/categories/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello R Markdown</title>
       <link>http://example.org/post/2020-12-01-r-rmarkdown/</link>
-      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>http://example.org/post/2020-12-01-r-rmarkdown/</guid>
       <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
