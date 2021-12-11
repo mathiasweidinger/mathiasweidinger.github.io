@@ -1,76 +1,50 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Mathias Weidinger on Mathias Weidinger</title>
-    <link>https://mathiasweidinger.github.io/</link>
-    <description>Recent content in Mathias Weidinger on Mathias Weidinger</description>
+    <title>Mathias Weidinger</title>
+    <link>http://example.org/</link>
+    <description>Recent content on Mathias Weidinger</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 21 Nov 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://mathiasweidinger.github.io/" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Posts</title>
-      <link>https://mathiasweidinger.github.io/posts/</link>
-      <pubDate>Sun, 21 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://mathiasweidinger.github.io/posts/</guid>
-      <description></description>
-    </item>
-    
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Research</title>
-      <link>https://mathiasweidinger.github.io/research/</link>
+      <link>http://example.org/research/</link>
       <pubDate>Sat, 18 Sep 2021 17:41:59 +0200</pubDate>
       
-      <guid>https://mathiasweidinger.github.io/research/</guid>
-      <description>&lt;img src=&#34;https://mathiasweidinger.github.io/reds.png&#34; alt=&#34;wordcloud&#34; width=50%/&gt;
-&lt;br /&gt;
-&lt;h3 id=&#34;working-papers-and-work-in-progress&#34;&gt;Working papers and work in progress&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;E-Resilience in Public Policy Graduate Education Worldwide (with Mindel van de Laar and Julieta Marotta)&lt;/li&gt;
-&lt;li&gt;A Multi-Level Lifecycle Model of Work and Education Payoffs under Family Dependency&lt;/li&gt;
-&lt;li&gt;Specialization Choice and Switching Behavior in Public Policy Students (with Mindel van de Laar)&lt;/li&gt;
-&lt;li&gt;Child Labour in Response to Climate Change&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;publications&#34;&gt;Publications&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;MEP&amp;rsquo;s Receptiveness to Third Country Interests in the Framework of ACP-EU Parliamentary Diplomacy (with Patricia Senge, &lt;em&gt;NORTIA Jean Monet Network on Research and Teaching in EU Foreign Affairs&lt;/em&gt;, 2020)
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://drive.google.com/file/d/1sWLpTjllPDt1YPAvcR_tMusTqBR2JSM8/preview&#34;&gt;Paper&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Selected media: &lt;a href=&#34;https://www.politics.ox.ac.uk/news/dpir-student-wins-nortias-student-essay-competition-with-co-authored-paper.html&#34;&gt;Oxford University&lt;/a&gt;, &lt;a href=&#34;https://fasos.maastrichtuniversity.nl/weekly/fasos-alumni-win-nortia-student-essay-competition/&#34;&gt;FASoS Weekly&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Ethno-national Confrontation and Electoral Choice (&lt;em&gt;Peace and Progress UPP&lt;/em&gt;, 2019)
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://postgraduate.ias.unu.edu/upp/wp-content/uploads/2019/07/UPP-1-Weidinger.pdf&#34;&gt;Paper&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <guid>http://example.org/research/</guid>
+      <description>Working papers and work in progress  E-Resilience in Public Policy Graduate Education Worldwide (with Mindel van de Laar and Julieta Marotta) A Multi-Level Lifecycle Model of Work and Education Payoffs under Family Dependency Specialization Choice and Switching Behavior in Public Policy Students (with Mindel van de Laar) Child Labour in Response to Climate Change  Publications  MEP&amp;rsquo;s Receptiveness to Third Country Interests in the Framework of ACP-EU Parliamentary Diplomacy (with Patricia Senge, NORTIA Jean Monet Network on Research and Teaching in EU Foreign Affairs, 2020)  Paper Selected media: Oxford University, FASoS Weekly   Ethno-national Confrontation and Electoral Choice (Peace and Progress UPP, 2019)  Paper    </description>
     </item>
     
     <item>
-      <title>Projects</title>
-      <link>https://mathiasweidinger.github.io/projects/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
+      <title>Hello R Markdown</title>
+      <link>http://example.org/post/2020-12-01-r-rmarkdown/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       
-      <guid>https://mathiasweidinger.github.io/projects/</guid>
-      <description></description>
+      <guid>http://example.org/post/2020-12-01-r-rmarkdown/</guid>
+      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://mathiasweidinger.github.io/about/</link>
+      <link>http://example.org/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mathiasweidinger.github.io/about/</guid>
-      <description>&lt;img src=&#34;https://mathiasweidinger.github.io/images/DSC_2317.JPG&#34; alt=&#34;cover_image&#34; width=50%/&gt;
-&lt;br /&gt;
-&lt;p&gt;Hello! I am a Research Assistant with the &lt;a href=&#34;https://dec.ethz.ch/&#34;&gt;Development Economics Group at ETH Zurich&lt;/a&gt;. I study how to meaningfully measure people&amp;rsquo;s lived economic realities, including poverty and inequality, and how people&amp;rsquo;s livelihoods are affected by threats like armed conflict, disease or Climate Change.&lt;/p&gt;
-&lt;p&gt;Some of my recent &lt;a href=&#34;https://mathiasweidinger.github.io/research&#34;&gt;work&lt;/a&gt; includes estimating the impact of global warming on children&amp;rsquo;s labour supply in rural Nigeria, analyzing graduate student&amp;rsquo;s motives to switch specialization tracks, and comparing the long term benefits of early work with those of education throughout different economic environments. Holding a &lt;a href=&#34;https://www.maastrichtuniversity.nl/education/bachelor/bachelor-european-studies&#34;&gt;BA in European Studies&lt;/a&gt;, I have also worked on EU foreign affairs and polarized electoral contests.&lt;/p&gt;
-&lt;p&gt;Large data sets, spatial information and time trends are common to most of my projects. Therefore, I mostly code in &lt;a href=&#34;https://www.r-project.org/&#34;&gt;R&lt;/a&gt; and occasionally dabble with &lt;a href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt; and &lt;a href=&#34;https://julialang.org/&#34;&gt;Julia&lt;/a&gt;. When I&amp;rsquo;m not working, you might find me running a trail, reading popular science books, watering my plants, or cooking with (and for) friends and family.&lt;/p&gt;
-&lt;p&gt;Before I came to Zurich, I was a Project Assistant at &lt;a href=&#34;https://merit.unu.edu&#34;&gt;UNU-MERIT&lt;/a&gt; and studied at &lt;a href=&#34;https://www.maastrichtuniversity.nl&#34;&gt;Maastricht University&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <guid>http://example.org/about/</guid>
+      <description>Hello! I am a Research Assistant with the Development Economics Group at ETH Zurich. I study how to meaningfully measure people&amp;rsquo;s lived economic realities, including poverty and inequality, and how people&amp;rsquo;s livelihoods are affected by threats like armed conflict, disease or Climate Change.
+Some of my recent work includes estimating the impact of global warming on children&amp;rsquo;s labour supply in rural Nigeria, analyzing graduate student&amp;rsquo;s motives to switch specialization tracks, and comparing the long term benefits of early work with those of education throughout different economic environments.</description>
+    </item>
+    
+    <item>
+      <title>Lala</title>
+      <link>http://example.org/post/lala/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/lala/</guid>
+      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
     </item>
     
   </channel>
