@@ -132,7 +132,7 @@ We just created a nested folder structure with multiple folders at each level. T
 
 ```{r, engine = 'bash', eval = FALSE, echo = TRUE}
 cd ROOT     # go to directory
-mkdir -p {al,am,bd,bj,bo,bf,bi,kh,ci,cm,cf,km,cg,eg,et,ga,gm,gh,gt,gn,gy,ht,hn,jo,kz,ke,kg,ls,lb,mg,mw,mv,ml,md,ma,mz,np,ni,ne,ng,pk,py,pe,rw,st,sn,sl,tz,tl,tg,tr,ug,ua,ye,zm,\}/{processed,raw}/{type_1,type_2,type_3,type_4}
+mkdir -p {al,am,bd,bj,bo,bf,bi,kh,ci,cm,cf,km,cg,eg,et,ga,gm,gh,gt,gn,gy,ht,hn,jo,kz,ke,kg,ls,lb,mg,mw,mv,ml,md,ma,mz,np,ni,ne,ng,pk,py,pe,rw,st,sn,sl,tz,tl,tg,tr,ug,ua,ye,zm,}/{processed,raw}/{type_1,type_2,type_3,type_4}
 ```
 
 This works but it is rather messy to look at. If you need to access and rerun this several times, it might be wise to write a shell script and use `\` to allow commands to run over multiple lines in bash. Then you can also use `#` to add comments to your code.
