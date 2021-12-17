@@ -42,9 +42,9 @@ Above I rambled about how organization - situating the right tools in the right 
 
 The worst part about this, other than confusing the hell out of me, is that it makes automation a hustle. You cannot easily loop through different folders, for instance, if the files in them are not named consistently or if they are spread across different sub directories in an arbitrary way. Why then have I often ended up in situation like this? Frankly, because building a good folder structure for a project ex ante can, itself, be time consuming. What follows is an example of such a situation, and my attempt to solve it programmatically.
 
-Recently, I had to save, clean, and re-save household data for seventy different countries. For each of them, I saved four different kinds of datasets for all the years available. What I was aiming for looked a lot like this graph. First, find the `\ROOT` folder. Then follow the arrows to explore the file structure.  
+Recently, I had to save, clean, and re-save household data for seventy different countries. For each of them, I saved four different kinds of datasets for all the years available. What I was aiming for looked a lot like this graph. First, find the `ROOT/` folder. Then follow the arrows to explore the file structure.  
 
-```{r}
+```{r example-structure, fig.cap='An example of a project folder structure.'}
 library(ggplot2)
 library(ggdag)
 theme_set(theme_dag())
@@ -60,26 +60,94 @@ dagify(DS1 ~ t1,
        raw ~ ctry,
        ctry ~ root,
        proc ~ ctry,
-       ddd ~ proc,
-       labels = c("DS1" = "/data1",
-                  "DS2" = "/data2",
-                  "DS3" = "/data3",
-                  "DS4" = "/data4",
-                  "t1" = "/type1",
-                  "t2" = "/type2",
-                  "t3" = "/type3",
-                  "t4" = "/type4",
-                  "raw" = "/raw",
-                  "ctry" = "/country",
-                  "root" = "/ROOT",
-                  "proc" = "/processed",
-                  "ddd" = "clean data"
+       t5 ~ proc,
+       t6 ~ proc,
+       t7 ~ proc,
+       t8 ~ proc,
+       DS5 ~ t5,
+       DS6 ~ t6,
+       DS7 ~ t7,
+       DS8 ~ t8,
+       labels = c("DS1" = "raw_data1",
+                  "DS2" = "raw_data2",
+                  "DS3" = "raw_data3",
+                  "DS4" = "raw_data4",
+                  "DS5" = "processed_data1",
+                  "DS6" = "processed_data2",
+                  "DS7" = "processed_data3",
+                  "DS8" = "processed_data4",
+                  "t1" = "raw1/",
+                  "t2" = "raw2/",
+                  "t3" = "raw3/",
+                  "t4" = "raw4/",
+                  "t5" = "proc1/",
+                  "t6" = "proc2/",
+                  "t7" = "proc3/",
+                  "t8" = "proc4/",
+                  "raw" = "raw/",
+                  "ctry" = "country/",
+                  "root" = "ROOT/",
+                  "proc" = "processed/"
                   )) -> graph
 ggdag(graph, text = FALSE, use_labels = "label")
 ```
 
 
 
-The `/ROOT` folder includes a `ROOT/country` folder. In it are, in turn, two folders: `raw` and `processed`. `ROOT/country/raw` is where the original, unprocessed data goes initially. It is itself partitioned into folders, one for each type of data. The data wrangling and cleaning script(s) take data from there and output the processed datasets to `ROOT/country/processed`. This is the clean data that enters my analysis. 
+The `ROOT/` folder includes a `ROOT/country/` folder. In it are, in turn, two folders: `raw` and `processed`. `ROOT/country/raw/` is where the original, unprocessed data goes initially. It is itself partitioned into folders, one for each of four types of data. The data wrangling and cleaning script(s) take data from there and output the processed datasets to `ROOT/country/processed/`, according again to the data types (1 thru 4). This is the clean data that enters my analysis.
 
 ## Can we bash it, already?
+
+Alright, to start with you need to know that the bash command to make new directories is conveniently called `mkdir`. To create a new folder called `things` on your desktop is as easy as writing...
+
+```{r, engine = 'bash', eval = FALSE, echo = TRUE}
+cd desktop
+mkdir things
+```
+
+To create a subdirectory inside `things/` - let's call it `things/stuff/` - we could use the same principle: just `cd` into `things/` and create the new sub-directory. 
+
+```{r, engine = 'bash', eval = FALSE, echo = TRUE}
+cd desktop
+mkdir things
+cd things
+mkdir stuff
+```
+
+This is an example of the ad-hoc approach to creating a file system; everytime I feel like I need a subfolder inside a directory, I just go there, create it and place files in it. But this becomes cumbersome very fast, especially because one has to `cd` in and out directories all the time. Thankfully, there is a way to nest folders inside the mkdir command. The following lines create the same directory `desktop/things/stuff/` as before, but this time in one line using the flag `-p` to allow for a nested structure.
+
+```{r, engine = 'bash', eval = FALSE, echo = TRUE}
+cd desktop
+mkdir -p things/stuff
+```
+
+Next, let's say that we want to divide our belongings into `some things` and `other things`, both of which consist of `stuff` and `more stuff`. For this, we use curly braces. Also make sure to use string delimiters (either `'` or `"`) around directory names that include spaces.
+
+```{r, engine = 'bash', eval = FALSE, echo = TRUE}
+cd desktop
+mkdir -p {'some things','other things'}/{stuff,'more stuff'}
+```
+
+We just created a nested folder structure with multiple folders at each level. To see how truly powerful this simple command is, let's finally create the project folder structure from figure \@ref(fig:example-structure). To up the complexity a little, the code below creates not one, not two...but *fifty-five* such country folders (named according to iso alpha 2 international country codes) inside the `\ROOT` directory.
+
+```{r, engine = 'bash', eval = FALSE, echo = TRUE}
+cd ROOT     # go to directory
+mkdir -p {al,am,bd,bj,bo,bf,bi,kh,ci,cm,cf,km,cg,eg,et,ga,gm,gh,gt,gn,gy,ht,hn,jo,kz,ke,kg,ls,lb,mg,mw,mv,ml,md,ma,mz,np,ni,ne,ng,pk,py,pe,rw,st,sn,sl,tz,tl,tg,tr,ug,ua,ye,zm,\}/{processed,raw}/{type_1,type_2,type_3,type_4}
+```
+
+This works but it is rather messy to look at. If you need to access and rerun this several times, it might be wise to write a shell script and use `\` to allow commands to run over multiple lines in bash. Then you can also use `#` to add comments to your code.
+
+```{r, engine = 'bash', eval = FALSE, echo = TRUE}
+cd ROOT     # go to directory
+mkdir -p {\     # initiate mkdir
+al,am,bd,bj,bo,bf,bi,kh,ci,cm,cf,\        # add country folders 
+km,cg,eg,et,ga,gm,gh,gt,gn,gy,ht,\        
+hn,jo,kz,ke,kg,ls,lb,mg,mw,mv,ml,\
+md,ma,mz,np,ni,ne,ng,pk,py,pe,rw,\
+st,sn,sl,tz,tl,tg,tr,ug,ua,ye,zm,\
+}\
+/{processed,raw}\      # create processed and raw sub-folders inside each country
+/{type_1,type_2,type_3,type_4} # divide them into data types
+```
+
+Coupled with a little planning ahead, you can now create usable nested project directories in the blink of an eye. Integrating a script like this to your computing routines can boost your productivity and makes it easier for others, who are unfamiliar with your folder structures, to replicate your work.
