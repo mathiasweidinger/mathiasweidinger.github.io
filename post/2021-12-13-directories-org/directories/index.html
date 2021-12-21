@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Intentional file structures in bash | Mathias Weidinger</title>
+<meta name="keywords" content="Bash, productivity, minimalism, shell, command line" />
+<meta name="description" content="Remember the times when, as a kid, you were only allowed to go out to play if you had cleared up the chaos in your room first? While we might not have appreciated our parents’ persistence on the matter all too much back then (I sure did not), I think most people would agree - once they’re adults, that is - that it helped them with building good habits.">
+<meta name="author" content="Mathias Weidinger">
+<link rel="canonical" href="http://mathiasweidinger.github.io/post/2021-12-13-directories-org/directories/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css" integrity="sha256-yIlj/i15RiAA/Q&#43;xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5fb294">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="generator" content="Hugo 0.88.1" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Intentional file structures in bash" />
+<meta property="og:description" content="Remember the times when, as a kid, you were only allowed to go out to play if you had cleared up the chaos in your room first? While we might not have appreciated our parents’ persistence on the matter all too much back then (I sure did not), I think most people would agree - once they’re adults, that is - that it helped them with building good habits." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mathiasweidinger.github.io/post/2021-12-13-directories-org/directories/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-20T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-12-20T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Intentional file structures in bash"/>
+<meta name="twitter:description" content="Remember the times when, as a kid, you were only allowed to go out to play if you had cleared up the chaos in your room first? While we might not have appreciated our parents’ persistence on the matter all too much back then (I sure did not), I think most people would agree - once they’re adults, that is - that it helped them with building good habits."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://mathiasweidinger.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Intentional file structures in bash",
+      "item": "http://mathiasweidinger.github.io/post/2021-12-13-directories-org/directories/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Intentional file structures in bash",
+  "name": "Intentional file structures in bash",
+  "description": "Remember the times when, as a kid, you were only allowed to go out to play if you had cleared up the chaos in your room first? While we might not have appreciated our parents’ persistence on the matter all too much back then (I sure did not), I think most people would agree - once they’re adults, that is - that it helped them with building good habits.",
+  "keywords": [
+    "Bash", "productivity", "minimalism", "shell", "command line"
+  ],
+  "articleBody": "\r\rRemember the times when, as a kid, you were only allowed to go out to play if you had cleared up the chaos in your room first? While we might not have appreciated our parents’ persistence on the matter all too much back then (I sure did not), I think most people would agree - once they’re adults, that is - that it helped them with building good habits. Today’s post is a little bit like that parental insistence; a reminder to keep things tidy, or be it on our computers.\nMinimalism vs Organization\rA minimalist’s capsule wardrobe, perhaps.\n\rA few years ago, Marie Kondo - Japan’s “Queen of clean” - had become popular outside Japan and seemingly everyone had suddenly subscribed to some form of “minimalism” as a lifestyle choice. On youtube, minimalist content creators fed the (at times curious, at times outright bizarre) trend of listing everything they own (e.g. here and here), #minimalism trended on twitter, the capsule wardrobe took over instagram by storm, and even Netflix produced a full-length movie entitled The Minimalists: Less is Now. Although the trend went quite far for some of its proponents, the director of said movie, minimalism youtuber Matt D’avella, recently reminded his followers that “they didn’t have to marry a minimalist” to be good people. Reassuring!\nI, for my part, couldn’t wait to take this new-found panacea for all the world’s problems and apply it to my digital life. Devices like smart phones and computers are at the heart of most people’s professional as well as private lives and it is this constant exposure to them which makes me think that books like Cal Newport’s Digital Minimalism deserve (at least) the same attention as the likes of Matt D’Avella or Marie Kondo. Not that there is anything wrong with decluttering the physical world around us - in fact, it has been eye-opening everytime I’ve done it.\nRather, I think that computers are a great place to experiment with structure. I have found that structure is the most useful tool when it comes to simplifying my life. At that, it is sometimes overlooked when we reduce minimalism to simply owning less stuff. It’s not only what we own (or how much of it), but also what we do with it - getting things done in other words. The way we assemble our possessions in the space around us affects how easily - and often - we will reach for and actually make use of them. Keeping things in an order that aligns well with our priorities and allows for easy and intuitive access is, thus, key to getting the most out of our belongings. Take for example a kitchen knive (I like to cook). You could of course store it anywhere, your garden shed or under your bed perhaps. But the fact that you will mostly need its services in the kitchen would make it a no-brainer to keep it in your kitchen drawer. Better yet, use a magnetic metal bar to “hang” it on your kitchen wall - in plain sight, that is. This choice maximises intuitive use, since the knive is always there when you need it, where you need it, if you need it. This can be applied to wardrobe organising, paper filing, and virtually all other life domains.\n\rFrom wardrobes to computers\rAbove I rambled about how organization - situating the right tools in the right place for their easy use - is key to simplifying one’s life. It’s also key to getting things done efficiently on your computer. Say you are working on a new project for work. For me, this usually involves the accumulation of code, documents, data, and many different sub-directories over time. In the past, I have found that chaos is inevitable if I let this folder and file structure grow “organically” as I go. The worst part about this is that it makes automation a hustle. You cannot easily loop through different folders, for instance, if the files in them are not named consistently or if they are spread across different sub directories in an arbitrary way. Why then have I often ended up in situation like this? Frankly, because building a good folder structure for a project ex ante can, itself, be time-consuming. What follows is the best solution I have come up with so far. It is far from perfect and I encourage you to experiment with it and share your strategies.\nRecently, I had to save, clean, and re-save household data for more than fifty countries. For each of them, I saved four different kinds of datasets for all the years available. In the end, the file and folder structure I was aiming for looked like this graph. First, find the ROOT/ folder. Then follow the arrows to explore the nested structure.\n\rFigure 1: An example of a project folder structure.\r\rThe ROOT/ folder includes a ROOT/country/ folder. In it are, in turn, two folders: raw and processed. ROOT/country/raw/ is where the original, unprocessed data goes initially. It is itself partitioned into folders, one for each of four types of data. The data wrangling and cleaning script(s) take data from there and output the processed datasets to ROOT/country/processed/, according again to the data types (1 thru 4). This is the clean data that enters my analysis.\n\rCan we bash it, already?\rAlright, to start with you need to know that the bash command to make new directories is conveniently called mkdir. To create a new folder called things on your desktop is as easy as writing…\ncd desktop\rmkdir things\rTo create a subdirectory inside things/ - let’s call it things/stuff/ - we could use the same principle: just cd into things/ and create the new sub-directory.\ncd desktop\rmkdir things\rcd things\rmkdir stuff\rThis is an example of the ad-hoc approach to creating a file system; everytime I feel like I need a subfolder inside a directory, I just go there, create it and place files in it. But this becomes cumbersome very fast, especially because one has to cd in and out directories all the time. Thankfully, there is a way to nest folders inside the mkdir command. The following lines create the same directory desktop/things/stuff/ as before, but this time in one line using the flag -p to allow for a nested structure.\ncd desktop\rmkdir -p things/stuff\rNext, let’s say that we want to divide our belongings into some things and other things, both of which consist of stuff and more stuff. For this, we use curly braces. Also make sure to use string delimiters (either ' or \") around directory names that include spaces.\ncd desktop\rmkdir -p {'some things','other things'}/{stuff,'more stuff'}\rWe just created a nested folder structure with multiple folders at each level. To see how truly powerful this simple command is, let’s finally create the project folder structure from figure 1. To up the complexity a little, the code below creates not one, not two…but fifty-five such country folders (named according to their two-letter country codes) inside the \\ROOT directory.\ncd ROOT # go to directory\rmkdir -p {al,am,bd,bj,bo,bf,bi,kh,ci,cm,cf,km,cg,eg,et,ga,gm,gh,gt,gn,gy,ht,hn,jo,kz,ke,kg,ls,lb,mg,mw,mv,ml,md,ma,mz,np,ni,ne,ng,pk,py,pe,rw,st,sn,sl,tz,tl,tg,tr,ug,ua,ye,zm,}/{processed,raw}/{type_1,type_2,type_3,type_4}\rThis works but it is rather messy to look at. If you need to access and rerun this several times, it might be wise to write a shell script and use \\ to allow commands to run over multiple lines in bash. Then you can also use # to add comments to your code.\ncd ROOT # go to directory\rmkdir -p {\\ # initiate mkdir\ral,am,bd,bj,bo,bf,bi,kh,ci,cm,cf,\\ # add country folders km,cg,eg,et,ga,gm,gh,gt,gn,gy,ht,\\ hn,jo,kz,ke,kg,ls,lb,mg,mw,mv,ml,\\\rmd,ma,mz,np,ni,ne,ng,pk,py,pe,rw,\\\rst,sn,sl,tz,tl,tg,tr,ug,ua,ye,zm,\\\r}\\\r/{processed,raw}\\ # create processed and raw sub-folders inside each country\r/{type_1,type_2,type_3,type_4} # divide them into data types\rCoupled with a little planning ahead, you can now create usable nested project directories in the blink of an eye. Integrating a script like this to your computing routines can boost your productivity and makes it easier for others, who are unfamiliar with your folder structures, to replicate your work.\n\r",
+  "wordCount" : "1333",
+  "inLanguage": "en",
+  "datePublished": "2021-12-20T00:00:00Z",
+  "dateModified": "2021-12-20T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Mathias Weidinger"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://mathiasweidinger.github.io/post/2021-12-13-directories-org/directories/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mathias Weidinger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://mathiasweidinger.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://mathiasweidinger.github.io/" accesskey="h" title="Mathias Weidinger (Alt + H)">Mathias Weidinger</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://mathiasweidinger.github.io/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://mathiasweidinger.github.io/research" title="Research">
+                    <span>Research</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://mathiasweidinger.github.io/cv_weidinger.pdf" title="CV">
+                    <span>CV</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://mathiasweidinger.github.io/post" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://mathiasweidinger.github.io/search" title="Find">
+                    <span>Find</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Intentional file structures in bash
+    </h1>
+    <div class="post-meta"><span title='2021-12-20 00:00:00 +0000 UTC'>December 20, 2021</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Mathias Weidinger
+
+</div>
+  </header> 
+  <div class="post-content">
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Remember the times when, as a kid, you were only allowed to go out to play if you had cleared up the chaos in your room first? While we might not have appreciated our parents’ persistence on the matter all too much back then (I sure did not), I think most people would agree - once they’re adults, that is - that it helped them with building good habits. Today’s post is a little bit like that parental insistence; a reminder to keep things tidy, or be it on our computers.</p>
+<div id="minimalism-vs-organization" class="section level2">
+<h2>Minimalism vs Organization</h2>
+<div class="figure">
+<img src="https://www.atlasformen.co.uk/repository/sites/20/en-GB/Inspiration/capsule-wardrobe.jpg" alt="" />
+<p class="caption">A minimalist’s capsule wardrobe, perhaps.</p>
+</div>
+<p>A few years ago, Marie Kondo - Japan’s “Queen of clean” - had become popular outside Japan and seemingly everyone had suddenly subscribed to some form of “minimalism” as a lifestyle choice. On youtube, minimalist content creators fed the (at times curious, at times outright bizarre) trend of listing everything they own (e.g. <a href="https://www.youtube.com/watch?v=TzaG0VGwCT0">here</a> and <a href="https://www.youtube.com/watch?v=shLASFm-4_4">here</a>), #minimalism trended on twitter, the <em>capsule wardrobe</em> took over instagram by storm, and even Netflix produced a full-length movie entitled <a href="https://www.youtube.com/watch?v=jn-xbOCZOiQ">The Minimalists: Less is Now</a>. Although the trend went quite far for some of its proponents, the director of said movie, minimalism youtuber Matt D’avella, recently reminded his followers that <a href="https://www.youtube.com/watch?v=REJqTXh8IwY">“they didn’t have to marry a minimalist”</a> to be good people. Reassuring!</p>
+<p>I, for my part, couldn’t wait to take this new-found panacea for all the world’s problems and apply it to my digital life. Devices like smart phones and computers are at the heart of most people’s professional as well as private lives and it is this constant exposure to them which makes me think that books like Cal Newport’s <a href="https://www.calnewport.com/books/digital-minimalism/">Digital Minimalism</a> deserve (at least) the same attention as the likes of Matt D’Avella or Marie Kondo. Not that there is anything wrong with decluttering the physical world around us - in fact, it has been eye-opening everytime I’ve done it.</p>
+<p>Rather, I think that computers are a great place to experiment with structure. I have found that structure is the most useful tool when it comes to simplifying my life. At that, it is sometimes overlooked when we reduce minimalism to simply owning <em>less</em> stuff. It’s not only what we own (or how much of it), but also what we do with it - getting things done in other words. The way we assemble our possessions in the space around us affects how easily - and often - we will reach for and actually make use of them. Keeping things in an order that aligns well with our priorities and allows for easy and intuitive access is, thus, key to getting the most out of our belongings. Take for example a kitchen knive (I like to cook). You could of course store it anywhere, your garden shed or under your bed perhaps. But the fact that you will mostly need its services in the kitchen would make it a no-brainer to keep it in your kitchen drawer. Better yet, use a magnetic metal bar to “hang” it on your kitchen wall - in plain sight, that is. This choice maximises intuitive use, since the knive is always there when you need it, where you need it, if you need it. This can be applied to wardrobe organising, paper filing, and virtually all other life domains.</p>
+</div>
+<div id="from-wardrobes-to-computers" class="section level2">
+<h2>From wardrobes to computers</h2>
+<p>Above I rambled about how organization - situating the right tools in the right place for their easy use - is key to simplifying one’s life. It’s also key to getting things done efficiently on your computer. Say you are working on a new project for work. For me, this usually involves the accumulation of code, documents, data, and many different sub-directories over time. In the past, I have found that chaos is inevitable if I let this folder and file structure grow “organically” as I go. The worst part about this is that it makes automation a hustle. You cannot easily loop through different folders, for instance, if the files in them are not named consistently or if they are spread across different sub directories in an arbitrary way. Why then have I often ended up in situation like this? Frankly, because building a good folder structure for a project ex ante can, itself, be time-consuming. What follows is the best solution I have come up with so far. It is far from perfect and I encourage you to experiment with it and share your strategies.</p>
+<p>Recently, I had to save, clean, and re-save household data for more than fifty countries. For each of them, I saved four different kinds of datasets for all the years available. In the end, the file and folder structure I was aiming for looked like this graph. First, find the <code>ROOT/</code> folder. Then follow the arrows to explore the nested structure.</p>
+<div class="figure"><span style="display:block;" id="fig:example-structure"></span>
+<img src="/post/2021-12-13-directories-org/directories_files/figure-html/example-structure-1.png" alt="An example of a project folder structure." width="672" />
+<p class="caption">
+Figure 1: An example of a project folder structure.
+</p>
+</div>
+<p>The <code>ROOT/</code> folder includes a <code>ROOT/country/</code> folder. In it are, in turn, two folders: <code>raw</code> and <code>processed</code>. <code>ROOT/country/raw/</code> is where the original, unprocessed data goes initially. It is itself partitioned into folders, one for each of four types of data. The data wrangling and cleaning script(s) take data from there and output the processed datasets to <code>ROOT/country/processed/</code>, according again to the data types (1 thru 4). This is the clean data that enters my analysis.</p>
+</div>
+<div id="can-we-bash-it-already" class="section level2">
+<h2>Can we bash it, already?</h2>
+<p>Alright, to start with you need to know that the bash command to make new directories is conveniently called <code>mkdir</code>. To create a new folder called <code>things</code> on your desktop is as easy as writing…</p>
+<pre class="bash"><code>cd desktop
+mkdir things</code></pre>
+<p>To create a subdirectory inside <code>things/</code> - let’s call it <code>things/stuff/</code> - we could use the same principle: just <code>cd</code> into <code>things/</code> and create the new sub-directory.</p>
+<pre class="bash"><code>cd desktop
+mkdir things
+cd things
+mkdir stuff</code></pre>
+<p>This is an example of the ad-hoc approach to creating a file system; everytime I feel like I need a subfolder inside a directory, I just go there, create it and place files in it. But this becomes cumbersome very fast, especially because one has to <code>cd</code> in and out directories all the time. Thankfully, there is a way to nest folders inside the mkdir command. The following lines create the same directory <code>desktop/things/stuff/</code> as before, but this time in one line using the flag <code>-p</code> to allow for a nested structure.</p>
+<pre class="bash"><code>cd desktop
+mkdir -p things/stuff</code></pre>
+<p>Next, let’s say that we want to divide our belongings into <code>some things</code> and <code>other things</code>, both of which consist of <code>stuff</code> and <code>more stuff</code>. For this, we use curly braces. Also make sure to use string delimiters (either <code>'</code> or <code>"</code>) around directory names that include spaces.</p>
+<pre class="bash"><code>cd desktop
+mkdir -p {&#39;some things&#39;,&#39;other things&#39;}/{stuff,&#39;more stuff&#39;}</code></pre>
+<p>We just created a nested folder structure with multiple folders at each level. To see how truly powerful this simple command is, let’s finally create the project folder structure from figure <a href="#fig:example-structure">1</a>. To up the complexity a little, the code below creates not one, not two…but <em>fifty-five</em> such country folders (named according to their <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">two-letter country codes</a>) inside the <code>\ROOT</code> directory.</p>
+<pre class="bash"><code>cd ROOT     # go to directory
+mkdir -p {al,am,bd,bj,bo,bf,bi,kh,ci,cm,cf,km,cg,eg,et,ga,gm,gh,gt,gn,gy,ht,hn,jo,kz,ke,kg,ls,lb,mg,mw,mv,ml,md,ma,mz,np,ni,ne,ng,pk,py,pe,rw,st,sn,sl,tz,tl,tg,tr,ug,ua,ye,zm,}/{processed,raw}/{type_1,type_2,type_3,type_4}</code></pre>
+<p>This works but it is rather messy to look at. If you need to access and rerun this several times, it might be wise to write a shell script and use <code>\</code> to allow commands to run over multiple lines in bash. Then you can also use <code>#</code> to add comments to your code.</p>
+<pre class="bash"><code>cd ROOT     # go to directory
+mkdir -p {\     # initiate mkdir
+al,am,bd,bj,bo,bf,bi,kh,ci,cm,cf,\        # add country folders 
+km,cg,eg,et,ga,gm,gh,gt,gn,gy,ht,\        
+hn,jo,kz,ke,kg,ls,lb,mg,mw,mv,ml,\
+md,ma,mz,np,ni,ne,ng,pk,py,pe,rw,\
+st,sn,sl,tz,tl,tg,tr,ug,ua,ye,zm,\
+}\
+/{processed,raw}\      # create processed and raw sub-folders inside each country
+/{type_1,type_2,type_3,type_4} # divide them into data types</code></pre>
+<p>Coupled with a little planning ahead, you can now create usable nested project directories in the blink of an eye. Integrating a script like this to your computing routines can boost your productivity and makes it easier for others, who are unfamiliar with your folder structures, to replicate your work.</p>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://mathiasweidinger.github.io/tags/bash/">Bash</a></li>
+      <li><a href="http://mathiasweidinger.github.io/tags/productivity/">productivity</a></li>
+      <li><a href="http://mathiasweidinger.github.io/tags/minimalism/">minimalism</a></li>
+      <li><a href="http://mathiasweidinger.github.io/tags/shell/">shell</a></li>
+      <li><a href="http://mathiasweidinger.github.io/tags/command-line/">command line</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2021 <a href="http://mathiasweidinger.github.io/">Mathias Weidinger</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

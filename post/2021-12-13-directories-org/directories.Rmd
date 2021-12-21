@@ -7,7 +7,7 @@ title: Intentional file structures in bash
 author: "Mathias Weidinger"
 
 categories: []
-tags: [Bash] [productivity] [minimalism]
+tags: ["Bash", "productivity", "minimalism", "shell", "command line"]
 
 cover:
     #image: "https://www.atlasformen.co.uk/repository/sites/20/en-GB/Inspiration/capsule-wardrobe.jpg"
@@ -19,7 +19,7 @@ hidemeta: false
 showtoc: false
 showBreadCrumbs: false
 
-draft: true
+draft: false
 ---
 
 ```{r setup, include=FALSE}

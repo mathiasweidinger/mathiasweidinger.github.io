@@ -5,6 +5,52 @@
     <link>http://mathiasweidinger.github.io/tags/</link>
     <description>Recent content in Tags on Mathias Weidinger</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://mathiasweidinger.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bash</title>
+      <link>http://mathiasweidinger.github.io/tags/bash/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>command line</title>
+      <link>http://mathiasweidinger.github.io/tags/command-line/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/tags/command-line/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>minimalism</title>
+      <link>http://mathiasweidinger.github.io/tags/minimalism/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/tags/minimalism/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>productivity</title>
+      <link>http://mathiasweidinger.github.io/tags/productivity/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/tags/productivity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>http://mathiasweidinger.github.io/tags/shell/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/tags/shell/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
