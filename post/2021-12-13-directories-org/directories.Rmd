@@ -2,20 +2,20 @@
 aliases:
 - "create-directories"
 
-date: "2021-12-18"
-title: Organization and intentional folder structuring in bash
+date: "2021-12-20"
+title: Intentional file structures in bash
 author: "Mathias Weidinger"
 
 categories: []
-tags: []
+tags: [Bash] [productivity] [minimalism]
 
 cover:
-    #image: "/images/profile_close.jpg"
-    alt: "profile_picture"
-    caption: "Nice to meet you!"
+    #image: "https://www.atlasformen.co.uk/repository/sites/20/en-GB/Inspiration/capsule-wardrobe.jpg"
+    alt: "capsule_wardrobe"
+    caption: "A minimalist's capsule wardrobe, perhaps."
     relative: false
     
-hidemeta: true
+hidemeta: false
 showtoc: false
 showBreadCrumbs: false
 
@@ -26,9 +26,13 @@ draft: true
 knitr::opts_chunk$set(collapse = TRUE, echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
+
+
 Remember the times when, as a kid, you were only allowed to go out to play if you had cleared up the chaos in your room first? While we might not have appreciated our parents' persistence on the matter all too much back then (I sure did not), I think most people would agree - once they're adults, that is - that it helped them with building good habits. Today's post is a little bit like that parental insistence; a reminder to keep things tidy, or be it on our computers.
 
 ## Minimalism vs Organization
+
+![A minimalist's capsule wardrobe, perhaps.](https://www.atlasformen.co.uk/repository/sites/20/en-GB/Inspiration/capsule-wardrobe.jpg)
 
 A few years ago, Marie Kondo - Japan's "Queen of clean" - had become popular outside Japan and seemingly everyone had suddenly subscribed to some form of "minimalism" as a lifestyle choice. On youtube, minimalist content creators fed the (at times curious, at times outright bizarre) trend of listing everything they own (e.g. [here](https://www.youtube.com/watch?v=TzaG0VGwCT0) and [here](https://www.youtube.com/watch?v=shLASFm-4_4)),  #minimalism trended on twitter, the *capsule wardrobe* took over instagram by storm, and even Netflix produced a full-length movie entitled [The Minimalists: Less is Now](https://www.youtube.com/watch?v=jn-xbOCZOiQ). Although the trend went quite far for some of its proponents, the director of said movie, minimalism youtuber Matt D'avella, recently reminded his followers that ["they didn't have to marry a minimalist"](https://www.youtube.com/watch?v=REJqTXh8IwY) to be good people. Reassuring!
 
@@ -38,11 +42,9 @@ Rather, I think that computers are a great place to experiment with structure. I
 
 ## From wardrobes to computers
 
-Above I rambled about how organization - situating the right tools in the right place for their easy use - is key to simplifying one's life. It's also key to getting things done efficiently on your computer. Say you are working on a new project for work. In my case,this usually involves the accumulation of code, documents, data, and many different sub-directories over time. In the last years, I have found that chaos is almost a certain outcome if I let this folder and file structure grow "organically" - as I go that is.
+Above I rambled about how organization - situating the right tools in the right place for their easy use - is key to simplifying one's life. It's also key to getting things done efficiently on your computer. Say you are working on a new project for work. For me, this usually involves the accumulation of code, documents, data, and many different sub-directories over time. In the past, I have found that chaos is inevitable if I let this folder and file structure grow "organically" as I go. The worst part about this is that it makes automation a hustle. You cannot easily loop through different folders, for instance, if the files in them are not named consistently or if they are spread across different sub directories in an arbitrary way. Why then have I often ended up in situation like this? Frankly, because building a good folder structure for a project ex ante can, itself, be time-consuming. What follows is the best solution I have come up with so far. It is far from perfect and I encourage you to experiment with it and share your strategies.
 
-The worst part about this, other than confusing the hell out of me, is that it makes automation a hustle. You cannot easily loop through different folders, for instance, if the files in them are not named consistently or if they are spread across different sub directories in an arbitrary way. Why then have I often ended up in situation like this? Frankly, because building a good folder structure for a project ex ante can, itself, be time consuming. What follows is an example of such a situation, and my attempt to solve it programmatically.
-
-Recently, I had to save, clean, and re-save household data for seventy different countries. For each of them, I saved four different kinds of datasets for all the years available. What I was aiming for looked a lot like this graph. First, find the `ROOT/` folder. Then follow the arrows to explore the file structure.  
+Recently, I had to save, clean, and re-save household data for more than fifty countries. For each of them, I saved four different kinds of datasets for all the years available. In the end, the file and folder structure I was aiming for looked like this graph. First, find the `ROOT/` folder. Then follow the arrows to explore the nested structure.  
 
 ```{r example-structure, fig.cap='An example of a project folder structure.'}
 library(ggplot2)
@@ -128,7 +130,7 @@ cd desktop
 mkdir -p {'some things','other things'}/{stuff,'more stuff'}
 ```
 
-We just created a nested folder structure with multiple folders at each level. To see how truly powerful this simple command is, let's finally create the project folder structure from figure \@ref(fig:example-structure). To up the complexity a little, the code below creates not one, not two...but *fifty-five* such country folders (named according to iso alpha 2 international country codes) inside the `\ROOT` directory.
+We just created a nested folder structure with multiple folders at each level. To see how truly powerful this simple command is, let's finally create the project folder structure from figure \@ref(fig:example-structure). To up the complexity a little, the code below creates not one, not two...but *fifty-five* such country folders (named according to their [two-letter country codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)) inside the `\ROOT` directory.
 
 ```{r, engine = 'bash', eval = FALSE, echo = TRUE}
 cd ROOT     # go to directory

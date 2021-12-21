@@ -5,8 +5,7 @@
     <link>http://mathiasweidinger.github.io/</link>
     <description>Recent content on Mathias Weidinger</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="http://mathiasweidinger.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
       <link>http://mathiasweidinger.github.io/about/</link>
@@ -24,17 +23,6 @@ Some of my recent work includes estimating the impact of global warming on child
       
       <guid>http://mathiasweidinger.github.io/research/</guid>
       <description>Working papers and work in progress  E-Resilience in Public Policy Graduate Education Worldwide (with Mindel van de Laar and Julieta Marotta) A Multi-Level Lifecycle Model of Work and Education Payoffs under Family Dependency Specialization Choice and Switching Behavior in Public Policy Students (with Mindel van de Laar) Child Labour in Response to Climate Change  Publications  MEP&amp;rsquo;s Receptiveness to Third Country Interests in the Framework of ACP-EU Parliamentary Diplomacy (with Patricia Senge, NORTIA Jean Monet Network on Research and Teaching in EU Foreign Affairs, 2020)  Paper Selected media: Oxford University, FASoS Weekly   Ethno-national Confrontation and Electoral Choice (Peace and Progress UPP, 2019)  Paper    </description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>http://mathiasweidinger.github.io/post/2020-12-01-r-rmarkdown/</link>
-      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://mathiasweidinger.github.io/post/2020-12-01-r-rmarkdown/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.</description>
     </item>
     
     
