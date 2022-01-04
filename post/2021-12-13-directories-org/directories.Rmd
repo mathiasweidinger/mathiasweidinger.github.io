@@ -130,7 +130,7 @@ cd desktop
 mkdir -p {'some things','other things'}/{stuff,'more stuff'}
 ```
 
-We just created a nested folder structure with multiple folders at each level. To see how truly powerful this simple command is, let's finally create the project folder structure from figure \@ref(fig:example-structure). To up the complexity a little, the code below creates not one, not two...but *fifty-five* such country folders (named according to their [two-letter country codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)) inside the `\ROOT` directory.
+We just created a nested folder structure with multiple folders at each level. To see how truly powerful this simple command is, let's finally create the project folder structure from figure \@ref(fig:example-structure). To up the complexity a little, the code below creates not one, not two...but *fifty-five* such country folders (named according to their [two-letter country codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)) inside the `\ROOT` directory. 
 
 ```{r, engine = 'bash', eval = FALSE, echo = TRUE}
 cd ROOT     # go to directory
@@ -151,5 +151,6 @@ st,sn,sl,tz,tl,tg,tr,ug,ua,ye,zm,\
 /{processed,raw}\      # create processed and raw sub-folders inside each country
 /{type_1,type_2,type_3,type_4} # divide them into data types
 ```
+Let's rewind a bit. This one (admittedly long) command creates 55 folders, each of which contains two folders, each of which contains four folders. Multiply and you get **440** folders, embedded in a pre-defined and consistent structure. I don't know about you, but I was awe-struck by that kind of efficiency.
 
 Coupled with a little planning ahead, you can now create usable nested project directories in the blink of an eye. Integrating a script like this to your computing routines can boost your productivity and makes it easier for others, who are unfamiliar with your folder structures, to replicate your work.

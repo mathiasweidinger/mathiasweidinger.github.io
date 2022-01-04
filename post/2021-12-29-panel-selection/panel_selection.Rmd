@@ -1,0 +1,47 @@
+---
+aliases:
+- "create-directories"
+
+date: "2021-12-29"
+title: "'Estimating panel data models in the presence of endogeneity and selection' - implemented in R"
+author: "Mathias Weidinger"
+
+categories: []
+tags: ["identification", "selection", "endogeneity", "panel data", "R", "econometrics"]
+
+cover:
+    #image: ""
+    alt: ""
+    caption: ""
+    relative: false
+    
+hidemeta: false
+showtoc: false
+showBreadCrumbs: false
+
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## TL;DR
+
+- In the social siences, we often encounter "left-censored" variables, where we have a big cluster at some lower threshold (often at zero).
+- Selection bias means accidentally working with a specific subset of your audience instead of the whole. The fact that this subset was not drawn randomly, but according to some non-random "selection" process, renders your sample unrepresentative of the whole population.
+- Statistical methods to correct for this selection bias are widely used in cross-sectional studies; most notably Heckman ([1978](https://www.jstor.org/stable/1909757) and [1979](https://www.jstor.org/stable/1912352)). They do, however, not easily extend to  longitudinal analysis with fixed effects due to the [incidental parameters problem](https://ocw.mit.edu/courses/economics/14-385-nonlinear-econometric-analysis-fall-2007/lecture-notes/lec21_22_nlpan.pdf) (see [Neyman & Scott, 1948](https://www.jstor.org/stable/1914288)).
+- [Semykina and Wooldridge (2010)](https://www.sciencedirect.com/science/article/pii/S0304407610000825) provide one estimator that controls for time-persistent, nonobserved heterogeneity (as fixed effects would) *and* corrects selection bias.
+- In this post, I offer a crash course of the theory behind this estimator and implement it in [R](https://www.r-project.org/).
+
+## Introduction
+
+### Panel Data
+
+### Endogeneity
+
+### Selection bias
+
+## Theory
+
+## Implementation in R
