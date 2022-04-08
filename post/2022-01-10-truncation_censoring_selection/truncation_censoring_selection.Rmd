@@ -1,0 +1,154 @@
+---
+aliases:
+- "truncation_censoring_selection"
+
+date: "2022-01-10"
+title: "Truncation vs censoring vs selection: Understanding limited data"
+author: "Mathias Weidinger"
+
+categories: []
+tags: ["truncation", "censored", "selection", "limited data", "R", "econometrics"]
+
+cover:
+    #image: ""
+    alt: ""
+    caption: ""
+    relative: false
+    
+hidemeta: false
+showtoc: false
+showBreadCrumbs: false
+
+draft: true
+math: true
+
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Every once in a while I find myself struggling to remember the details about some fundamental concepts in Econometrics and Statistics in general. It may be that I encounter the same familiar concept in an environment that is new for me. It might also be that so much time has past since I first learned about it, that I simply need a refresher. Lastly, some concepts are so similar to one another that the differences between them become a bit blurry in my mind as time goes by. To save myself a bit of googeling next time I run into a limited dataset, here is a post to remind me of the not so subtle difference between truncated, censored, and selected data. For this demonstration in R, we need to load the following packages...
+
+```{r, include = TRUE, echo = TRUE , warning = FALSE, message = FALSE}
+
+# load packages
+library(AER)        # example datasets
+library(tidyverse)  # the almighty tidyverse
+library(magrittr)   # double pipe operator
+library(ggpubr)     # combine multiple graphs
+```
+
+# What is a limited dataset?
+
+Most commonly used econometric methods assume that the data is distributed according to some mathematically well-defined distribution. Models that make such an assumption are called parametric models, owing to the fact that they can be estimated by fitting a pre-existing function to the data by adjusting its parameters. The normal (aka "Gaussian") is the best known and most commonly used continuous probability distribution for statistical inference.
+
+From Statistics 101, remember that the normal distribution is a type of continuous probability distribution for a real-valued random variable. The general form of its probability density function is
+
+$$
+f(x)=\frac{1}{\sigma \sqrt{2 \pi}}e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
+$$
+
+
+The parameter $\mu$ is the mean or expectation of the distribution (and also its median and mode), while the parameter $\sigma$ is its standard deviation. The variance of the distribution is $\sigma^2$. A random variable with a Gaussian distribution is said to be normally distributed, and many real world phenomena are (close to) normally distributed. Let's quickly visualize what that looks like.
+
+--------
+
+<details><summary>show source code</summary>
+```{r echo = T, eval = FALSE}
+(
+p9 <- ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
+    stat_function(fun = dnorm) +
+    geom_vline(xintercept = 0, linetype = "dashed", color = "red")
+)
+```
+</details>
+```{r bellcurve, echo = FALSE, fig.cap='PDF of a standard normal distribution. Red dashed line indicates mean.'}
+(
+p9 <- ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
+    stat_function(fun = dnorm) +
+    geom_vline(xintercept = 0, linetype = "dashed", color = "red")
+)
+```
+
+--------
+
+Note that the normal distribution is inherently symmetric and centered above $\mu$. For the figure above, $x$ is normally distributed with mean zero and a variance of one; we call this a "standard-normal" distribution and it's written as $x\sim\mathcal{N}(\mu=0, \sigma^2=1)$. Roughly speaking, saying that some random variable is normally distributed means that it's probability density function (PDF) follows this characteristically symmetric bellshape which peaks at the variable's mean. The probability that we observe a value left of the mean should be equal to the probability of observing a value right of it. The further a value is away from the mean, the more improbable is it that we observe it.
+
+However, real life often presents us with data that does not readily fit a normal distribution. While this *may* happen as a result of faulty measurement (we call this "measurement error"), that does not have to be the case. In fact, even if the measurement is reasonably close to the truth (because no measurement is ever 100% spot on), we might have limited data due to the very nature of the phenomenon at hand.
+
+Perhaps the most commonly noted examples (among economists) come from labor economics. Two key metrics in this area are hours of work and hourly wages, for both of which we only have limited measurements. Graphically, limited data usually more or less follows a normal distribution for some but not all its values. In econometrics, this is most relevant when the dependent variable in a regression is limited in one of three ways: it is either censored, truncated, or exhibits selection.
+
+Let's consider these three distinct concepts using an example: the US 1976 Panel Study on Income Dynamics (PSID1976). Thomas A. Mroz used these data in his [1987 article in *Econometrica*](https://www.jstor.org/stable/1911029) to analyse the labour supply of married women. The data set ships with the R-package `AER` (Kleiber & Zeileis, [2020](https://cran.r-project.org/web/packages/AER/index.html)).
+
+## Censoring vs truncation vs selection
+
+Let's start with censoring. Say we observe a continuous variable. Choose some value and set all values below (or above) it equal to this threshold. What we get is a data set that has not lost any observations (the sample size is exactly the same) but some information because the variation below (above) the cut-off was eliminated.
+
+This may happen as a result of survey methodology: Consider a survey that asks about respondents' income, but codes everyone earning more than 100,000 USD as "100,000 USD or more". As a result, the histogram of income will be approximately normal on the left but it will have a spike at 100,000 USD and no observations beyond this ceiling. This is an example of a "right-censored" variable.
+
+Sometimes it is not methodology that's to blame. Consider the far more common case of observing all incomes in your sample. Unless we limit our sample to working individuals only, there will likely be a spike at zero, because of those individuals in our sample that do not work at all. This is called "left-censoring" because the otherwise normal density now has a spike left of the mean and nothing below it.
+
+Let's turn to the  PSID1976 data. Panels A and B of Figure \@ref(fig:censored) plot yearly work hours and wage rates for 753 women in 1975. Panels C and D below show the respective probability densities. Clearly, neither of them look anything like the bell curve in Figure \@ref(fig:bellcurve).
+
+----------
+
+<details><summary>show source code</summary>
+```{r, echo = TRUE, eval = FALSE}
+# load data
+data("PSID1976")
+
+# plot histogram
+hhist <- ggplot(data = PSID1976, aes(x = hours)) +
+    geom_histogram(color = "black", fill = "white") +
+    geom_vline(xintercept = mean(PSID1976$hours), linetype = "dashed", color = "red") +
+    labs(title = "hours worked in 1975", caption = "(mean = 740.576)")
+
+whist <- ggplot(data = PSID1976, aes(x = wage)) + 
+    geom_histogram(color = "black", fill = "white", binwidth = 1) +
+    geom_vline(xintercept = mean(PSID1976$wage), linetype = "dashed", color = "red") +
+    labs(title = "hourly wage in 1975 USD", caption = "(mean = 2.375)")
+
+hdens <- ggplot(data = PSID1976, aes(x = hours)) +
+    geom_density() +
+    labs(title = "density of hours worked")
+
+wdens <- ggplot(data = PSID1976, aes(x = wage)) + 
+    geom_density() +
+    labs(title = "density of hourly wage")
+
+figure <- ggarrange(hhist,whist,hdens,wdens, labels = c("A", "B", "C", "D"), ncol = 2, nrow = 2)
+figure
+```
+</details>
+```{r censored, include = TRUE, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = 'Histograms and density plots for hours worked in 1975 and hourly wage rates. Red dashed lines indicate variable means.'}
+
+# load data
+data("PSID1976")
+
+# plot histogram
+hhist <- ggplot(data = PSID1976, aes(x = hours)) +
+    geom_histogram(color = "black", fill = "white") +
+    geom_vline(xintercept = mean(PSID1976$hours), linetype = "dashed", color = "red") +
+    labs(title = "hours worked in 1975", caption = "(mean = 740.576)")
+
+whist <- ggplot(data = PSID1976, aes(x = wage)) + 
+    geom_histogram(color = "black", fill = "white", binwidth = 1) +
+    geom_vline(xintercept = mean(PSID1976$wage), linetype = "dashed", color = "red") +
+    labs(title = "hourly wage in 1975 USD", caption = "(mean = 2.375)")
+
+hdens <- ggplot(data = PSID1976, aes(x = hours)) +
+    geom_density() +
+    labs(title = "density of hours worked")
+
+wdens <- ggplot(data = PSID1976, aes(x = wage)) + 
+    geom_density() +
+    labs(title = "density of hourly wage")
+
+figure <- ggarrange(hhist,whist,hdens,wdens, labels = c("A", "B", "C", "D"), ncol = 2, nrow = 2)
+figure
+```
+----------
+
+The data clearly shows that there are many women who do not work. For these people both their hours and wage rate are zero. But not all of them are the same. Some might abstain from working because they are too old, too young, in education or not able to work. Others may not want to work because there are not many jobs that fit their qualifications or priorities. Lastly, there may be people who actively look for a job but cannot find one and those who are between jobs (these are the long-term and temporary unemployed). This is an example of censoring because theory suggests that there is a theoretical la

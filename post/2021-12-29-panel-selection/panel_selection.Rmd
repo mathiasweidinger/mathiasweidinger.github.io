@@ -32,9 +32,17 @@ knitr::opts_chunk$set(echo = TRUE)
 - Selection bias means accidentally working with a specific subset of your audience instead of the whole. The fact that this subset was not drawn randomly, but according to some non-random "selection" process, renders your sample unrepresentative of the whole population.
 - Statistical methods to correct for this selection bias are widely used in cross-sectional studies; most notably Heckman ([1978](https://www.jstor.org/stable/1909757) and [1979](https://www.jstor.org/stable/1912352)). They do, however, not easily extend to  longitudinal analysis with fixed effects due to the [incidental parameters problem](https://ocw.mit.edu/courses/economics/14-385-nonlinear-econometric-analysis-fall-2007/lecture-notes/lec21_22_nlpan.pdf) (see [Neyman & Scott, 1948](https://www.jstor.org/stable/1914288)).
 - [Semykina and Wooldridge (2010)](https://www.sciencedirect.com/science/article/pii/S0304407610000825) provide one estimator that controls for time-persistent, nonobserved heterogeneity (as fixed effects would) *and* corrects selection bias.
-- In this post, I offer a crash course of the theory behind this estimator and implement it in [R](https://www.r-project.org/).
+- This post briefly outlines the theory behind this estimator and then implements it in [R](https://www.r-project.org/).
 
-## Introduction
+## Censoring vs truncation vs selection
+
+Most commonly used econometric methods assume that the data is distributed accoring to some mathematically well-defined distribution. Models that make such an assumption are called parametric models, owing to the fact that they can be estimated by fitting a pre-existing function to the data by adjusting its parameters. The normal (aka "Gaussian") distribution is by far the best known and most commonly used for statistical inference in economics.
+
+However, real life often presents us with data that does not readily fit a normal distribution. While this *may* happen as a result of faulty measurement (we call this "measurement error"), that does not have to be the case. In fact, even if the measurement is reasonably close to the truth (because no measurement is ever 100% spot on), we might see huge clusters at one or more values of the variable we are interested in.
+
+
+
+
 
 ### Panel Data
 

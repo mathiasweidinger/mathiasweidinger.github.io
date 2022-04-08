@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Teachings on Mathias Weidinger</title>
+    <link>http://mathiasweidinger.github.io/teaching/</link>
+    <description>Recent content in Teachings on Mathias Weidinger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/teaching/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Statistics II (ETH Zurich, Spring 2022)</title>
+      <link>http://mathiasweidinger.github.io/teaching/stats2/</link>
+      <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/teaching/stats2/</guid>
+      <description>As a Teaching Assistant in this course on causal inference for social scientists, I held three of the practical lectures. Students had a chance to apply what they learned about regression techniques during the theory lectures, via coding examples in R. The course, which forms part of the MSc in Science, Technology, and Policy, introduces students to the work horse models for statistical inference in Econometrics:
+ Non-experimental:
+ OLS with interaction terms and polynomials Multinomial LOGIT and PROBIT Panel regression methods (fixed and random effects) Instrumental Variables (2SLS)  Quasi-experiments:</description>
+    </item>
+    
+  </channel>
+</rss>
