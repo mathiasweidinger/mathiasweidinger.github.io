@@ -6,7 +6,16 @@
     <description>Recent content on Mathias Weidinger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC of things I like</title>
+      <link>http://mathiasweidinger.github.io/post/2022-08-16-abc-of-things-i-like/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/post/2022-08-16-abc-of-things-i-like/</guid>
+      <description>I like trains.</description>
+    </item>
+    
     <item>
       <title>Intentional file structures in bash</title>
       <link>http://mathiasweidinger.github.io/post/2021-12-13-directories-org/directories/</link>
@@ -22,8 +31,8 @@
       <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>http://mathiasweidinger.github.io/about/</guid>
-      <description>I am a Research Assistant with the Development Economics Group at ETH Zurich. My research interests lie at the intersection of environmental and development economics - or envirodevonomics for short. I study how people&amp;rsquo;s socio-economic well-being can be meaningfully measured and how these metrics relate to the natural environment.
-Most of the research I envision sets out to characterize the causal effects of environmental threats &amp;ndash; like floods, tropical storms or Climate Change &amp;ndash; on people&amp;rsquo;s livelihoods.</description>
+      <description>I am a data enthusiast and social scientist whose primary interests lie at the intersection of environmental and development economics - or envirodevonomics for short. I study how people&amp;rsquo;s economic well-being relates to their natural surroundings, how economic activity transforms the natural environment, and how &amp;ldquo;sustainable development&amp;rdquo; can be achieved.
+Most of the research I envision sets out to characterize the effects of environmental threats on people&amp;rsquo;s livelihoods in the Global South (and vice versa).</description>
     </item>
     
     <item>
