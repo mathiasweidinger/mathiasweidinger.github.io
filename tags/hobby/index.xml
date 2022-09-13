@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>hobby on Mathias Weidinger</title>
+    <link>http://mathiasweidinger.github.io/tags/hobby/</link>
+    <description>Recent content in hobby on Mathias Weidinger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/tags/hobby/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC of things I like</title>
+      <link>http://mathiasweidinger.github.io/post/2022-08-16-abc-of-things-i-like/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/post/2022-08-16-abc-of-things-i-like/</guid>
+      <description>A A is for Attersee. The crystalline waters of this Austrian lake with their ever-changing hue of navy blue, indigo and forest green and a scent of earthy freshness were the backdrop to the first 19 years of my life. Although I no longer live nearby, there are few things I would rather do on a hot summer day than to take a dip into the blue where I first learned to swim.</description>
+    </item>
+    
+  </channel>
+</rss>
