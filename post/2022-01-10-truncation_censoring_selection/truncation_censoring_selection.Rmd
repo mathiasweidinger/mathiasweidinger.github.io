@@ -3,7 +3,8 @@ aliases:
 - "truncation_censoring_selection"
 
 date: "2022-01-10"
-title: "Truncation vs censoring vs selection: Understanding limited data"
+title: "Understanding limited data"
+subtitle: "truncation, censoring, and selection"
 author: "Mathias Weidinger"
 
 categories: []
@@ -21,15 +22,13 @@ showBreadCrumbs: false
 
 draft: true
 math: true
-
-
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Every once in a while I find myself struggling to remember the details about some fundamental concepts in Econometrics and Statistics in general. It may be that I encounter the same familiar concept in an environment that is new for me. It might also be that so much time has past since I first learned about it, that I simply need a refresher. Lastly, some concepts are so similar to one another that the differences between them become a bit blurry in my mind as time goes by. To save myself a bit of googeling next time I run into a limited dataset, here is a post to remind me of the not so subtle difference between truncated, censored, and selected data. For this demonstration in R, we need to load the following packages...
+For this demonstration in R, we need to load the following packages...
 
 ```{r, include = TRUE, echo = TRUE , warning = FALSE, message = FALSE}
 
@@ -42,20 +41,15 @@ library(ggpubr)     # combine multiple graphs
 
 # What is a limited dataset?
 
-Most commonly used econometric methods assume that the data is distributed according to some mathematically well-defined distribution. Models that make such an assumption are called parametric models, owing to the fact that they can be estimated by fitting a pre-existing function to the data by adjusting its parameters. The normal (aka "Gaussian") is the best known and most commonly used continuous probability distribution for statistical inference.
+In econometrics,we often rely on the assumption that our data is distributed in way that is clearly defined, mathematically "well-behaved" and, therefore, easy to work with. We call some models *parametric* because they work by adjusting one or more parameters of a well-known function in such a way that it fits the data well. Let 's see what that looks like in practice.
 
-From Statistics 101, remember that the normal distribution is a type of continuous probability distribution for a real-valued random variable. The general form of its probability density function is
+Take, for instance, the normal (aka "Gaussian") distribution, which is commonly used to model continuous data. If you have ever set through an introductory statistics course, you will remember that the normal distribution is a type of probability distribution for a real-valued random variable. The general form of its probability density function (PDF) is
 
 $$
 f(x)=\frac{1}{\sigma \sqrt{2 \pi}}e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
 $$
+This function has two parameters, $\mu$ and $\sigma$. $\mu$ is the mean or expectation of the distribution (and also its median and mode), while $\sigma$ is its standard deviation. And yes, that means that the variance of the distribution is $\sigma^2$. A random variable with a Gaussian distribution is said to be normally distributed, and many real world phenomena happen to be (approximately) normally distributed. To see why that might be, let's visualize what the normal distribution's PDF looks like.
 
-
-The parameter $\mu$ is the mean or expectation of the distribution (and also its median and mode), while the parameter $\sigma$ is its standard deviation. The variance of the distribution is $\sigma^2$. A random variable with a Gaussian distribution is said to be normally distributed, and many real world phenomena are (close to) normally distributed. Let's quickly visualize what that looks like.
-
---------
-
-<details><summary>show source code</summary>
 ```{r echo = T, eval = FALSE}
 (
 p9 <- ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
@@ -63,7 +57,8 @@ p9 <- ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
     geom_vline(xintercept = 0, linetype = "dashed", color = "red")
 )
 ```
-</details>
+
+
 ```{r bellcurve, echo = FALSE, fig.cap='PDF of a standard normal distribution. Red dashed line indicates mean.'}
 (
 p9 <- ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
@@ -72,11 +67,11 @@ p9 <- ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
 )
 ```
 
---------
+Note that the normal distribution is inherently symmetric and centered above $\mu$. For the figure above, $x$ is normally distributed with mean zero and a variance of one; we call this a "standard-normal" distribution and it's written as $x\sim\mathcal{N}(\mu=0, \sigma^2=1)$. Roughly speaking, saying that some random variable is normally distributed means that it's PDF follows this characteristically symmetric bell-shape which peaks at the variable's mean. The probability that we observe a value left of the mean should be equal to the probability of observing a value right of it. The further a value is away from the mean, the more improbable is it that we observe it.
 
-Note that the normal distribution is inherently symmetric and centered above $\mu$. For the figure above, $x$ is normally distributed with mean zero and a variance of one; we call this a "standard-normal" distribution and it's written as $x\sim\mathcal{N}(\mu=0, \sigma^2=1)$. Roughly speaking, saying that some random variable is normally distributed means that it's probability density function (PDF) follows this characteristically symmetric bellshape which peaks at the variable's mean. The probability that we observe a value left of the mean should be equal to the probability of observing a value right of it. The further a value is away from the mean, the more improbable is it that we observe it.
+So why is the normal distribution so useful in modelling real world phenomena? Well, first off the bell-shape implies that a random draw from a population will, most likely, fall close to the mean of that population, and that it is very unlikely that we would draw an observation at the extreme ends of the population's distribution. Say we are measuring the height of twelve-year-olds. If we draw any random individual from that group, they are almost certainly between 1 meter and 1.70 meters tall. The probability of sampling someone smaller than 1 m is close to zero, as is the probability of sampling someone taller than 2m. This admittedly obvious example is to say that, in nature, many things are rather alike in many ways and the extremes are very rare (duh). So that is why the general shape of the normal distribution (few obs at the tails, many at the middle) is so attractive.
 
-However, real life often presents us with data that does not readily fit a normal distribution. While this *may* happen as a result of faulty measurement (we call this "measurement error"), that does not have to be the case. In fact, even if the measurement is reasonably close to the truth (because no measurement is ever 100% spot on), we might have limited data due to the very nature of the phenomenon at hand.
+Its symmetry is what makes the normal distribution so easy to work with mathematically. However, this symmetry is not nearly as common in real world phenomena as the simple down-up-down pattern. Real life often presents us with data that does not readily fit a normal distribution due to a lack of symmetry. While this *may* happen as a result of faulty measurement (we call this "measurement error"), that does not have to be the case. In fact, even if the measurement is reasonably close to the truth (because no measurement is ever 100% spot on), we might have limited data due to the very nature of the phenomenon at hand.
 
 Perhaps the most commonly noted examples (among economists) come from labor economics. Two key metrics in this area are hours of work and hourly wages, for both of which we only have limited measurements. Graphically, limited data usually more or less follows a normal distribution for some but not all its values. In econometrics, this is most relevant when the dependent variable in a regression is limited in one of three ways: it is either censored, truncated, or exhibits selection.
 
