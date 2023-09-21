@@ -22,8 +22,16 @@
       <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>http://mathiasweidinger.github.io/about/</guid>
-      <description>I am a data enthusiast who works at the intersection of environmental and development economics - or envirodevonomics for short. Following a nine month research assistantship with the Development Economics Group at ETH Zurich, I am currently finishing my Research Master&amp;rsquo;s at Maastricht University.
-My research explores the links between ecosystem services, economic activity, and human development. It is relevant for balancing the twin goals of poverty alleviation and environmental sustainability, understanding synergies between investments in environmental quality and human wellbeing, and informing low- and middle-income countries&#39; optimal transition paths towards net zero.</description>
+      <description>I am a quantitative social scientist who works at the intersection of environmental and development economics - or envirodevonomics for short. I combine data, mathematical models, and coffee to draw transition pathways towards net zero for low- and middle-income countries. I am particularly passionate about policies that leverage investments in environmental quality to promote the joint goals of environmental sustainability and human development, strengthen resilience in local communities, and make polluters pay.</description>
+    </item>
+    
+    <item>
+      <title>Photography</title>
+      <link>http://mathiasweidinger.github.io/lens/</link>
+      <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/lens/</guid>
+      <description>I am a quantitative social scientist who works at the intersection of environmental and development economics - or envirodevonomics for short. I combine data, mathematical models, and coffee to understand how human societies and the natural environment relate to one another. I do research so that policies towards decarbonisation and conservation can be informed, effective, and fair - in particular by shifting the cost to polluters while lifting people out of poverty and strengthening global resilience through investments in environmental quality and adaptation.</description>
     </item>
     
     <item>
@@ -32,10 +40,9 @@ My research explores the links between ecosystem services, economic activity, an
       <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>http://mathiasweidinger.github.io/research/</guid>
-      <description>In Progress   The Hidden Costs of Deforestation: Evidence from Uganda (with Stephan Dietrich, Stafford Nichols, and Firminus Mugumya)
-  Forest Loss and Subjective Well-being Around the World.
-  Specialization Choice and Switching Behavior in Public Policy Students (with Mindel van der Laar)
-  Published   Senge, P., and Weidinger, M. (2020). MEP&amp;rsquo;s Receptiveness to Third Country Interests in the Framework of ACP-EU Parliamentary Diplomacy. NORTIA.</description>
+      <description>Work in Progress  The Hidden Costs of Deforestation: Evidence from Uganda (with Stephan Dietrich, Stafford Nichols, and Firminus Mugumya)  Unpublished Work   Weidinger, M. (2023). Does Exposure to Deforestation Affect Subjective Well-Being? Evidence from Sub-Saharan Africa. Master&amp;rsquo;s Thesis. [paper] [bib]
+  Weidinger, M. (2021). Child Labour in Response to Climate Change. Master&amp;rsquo;s Thesis. [paper] [code] [bib]
+  Earlier Work on European Politics   Senge, P.</description>
     </item>
     
     <item>
@@ -44,21 +51,18 @@ My research explores the links between ecosystem services, economic activity, an
       <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>http://mathiasweidinger.github.io/teaching/</guid>
-      <description>  Statistics II, ETH Zurich (Spring 2022, Teaching Assistant)
-  Git for Research, UNU-MERIT (Summer 2021, PhD workshop)
-  Markdown and PanDoc, UNU-MERIT (Summer 2021, PhD workshop)
+      <description>ETH Zurich  Statistics 2 (Spring 2022, teaching assistant)  UNU-MERIT   Git for Research (Summer 2021, PhD workshop instructor)
+  Markdown and PanDoc (Summer 2021, PhD workshop instructor)
   </description>
     </item>
     
     <item>
       <title>Vita</title>
-      <link>http://mathiasweidinger.github.io/curriculum_vitae/</link>
+      <link>http://mathiasweidinger.github.io/vita/</link>
       <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://mathiasweidinger.github.io/curriculum_vitae/</guid>
-      <description>For my achievements and mishaps to date, please see both my Curricula Vitae provided below. 1
- Curriculum Vitae: PDF CV of failures: PDF    Neither mentions my zeal of Latin grammar.&amp;#160;&amp;#x21a9;&amp;#xfe0e;
-   </description>
+      <guid>http://mathiasweidinger.github.io/vita/</guid>
+      <description>Short Bio  Mathias Weidinger is a full-time research assistant in climate compatible growth at the Smith School of Enterprise and the Environment, University of Oxford. He received his B.A. in european studies from the Maastricht University in 2018, an M.Sc. in public policy and human development jointly awarded by UNU-MERIT and Maastricht University in 2021, and a research M.Sc. in economics from Maastricht University in 2023. His research focuses on environmental and ressource economics, development economics, and inferential methods for spatial data.</description>
     </item>
     
   </channel>
