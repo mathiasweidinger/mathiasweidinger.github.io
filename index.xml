@@ -6,7 +6,16 @@
     <description>Recent content on Mathias Weidinger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing WBqueryR</title>
+      <link>http://mathiasweidinger.github.io/post/2022-11-01-introducing-wbqueryr/</link>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/post/2022-11-01-introducing-wbqueryr/</guid>
+      <description>Let me set the scene. You find yourself studying graduate economics and are tasked to compile as much household expenditure data from low- and middle-income countries - or LMICs - as you can possibly muster.1 You think you are smart and immediately navigate to the World Bank’s Microdata Library to search, find, and download household expenditure data on countries from Algeria to Zimbabwe.2 Not long into your quest, however, you start to get side-tracked.</description>
+    </item>
+    
     <item>
       <title>Intentional file structures in bash</title>
       <link>http://mathiasweidinger.github.io/post/2021-12-13-directories-org/directories/</link>

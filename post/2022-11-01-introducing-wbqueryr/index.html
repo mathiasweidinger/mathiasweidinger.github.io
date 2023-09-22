@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Introducing WBqueryR | Mathias Weidinger</title>
+<meta name="keywords" content="R, productivity, webscraping, R-packages" />
+<meta name="description" content="Let me set the scene. You find yourself studying graduate economics and are tasked to compile as much household expenditure data from low- and middle-income countries - or LMICs - as you can possibly muster.1 You think you are smart and immediately navigate to the World Bank’s Microdata Library to search, find, and download household expenditure data on countries from Algeria to Zimbabwe.2 Not long into your quest, however, you start to get side-tracked.">
+<meta name="author" content="Mathias Weidinger">
+<link rel="canonical" href="http://mathiasweidinger.github.io/post/2022-11-01-introducing-wbqueryr/" />
+
+
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.9025936070e981594b57176b20b960ccf6f3f240549afcff8f7a6fe8c840f11d.css" integrity="sha256-kCWTYHDpgVlLVxdrILlgzPbz8kBUmvz/j3pv6MhA8R0=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5fb294">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="generator" content="Hugo 0.88.1" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Introducing WBqueryR" />
+<meta property="og:description" content="Let me set the scene. You find yourself studying graduate economics and are tasked to compile as much household expenditure data from low- and middle-income countries - or LMICs - as you can possibly muster.1 You think you are smart and immediately navigate to the World Bank’s Microdata Library to search, find, and download household expenditure data on countries from Algeria to Zimbabwe.2 Not long into your quest, however, you start to get side-tracked." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://mathiasweidinger.github.io/post/2022-11-01-introducing-wbqueryr/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-11-01T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-11-01T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Introducing WBqueryR"/>
+<meta name="twitter:description" content="Let me set the scene. You find yourself studying graduate economics and are tasked to compile as much household expenditure data from low- and middle-income countries - or LMICs - as you can possibly muster.1 You think you are smart and immediately navigate to the World Bank’s Microdata Library to search, find, and download household expenditure data on countries from Algeria to Zimbabwe.2 Not long into your quest, however, you start to get side-tracked."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://mathiasweidinger.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Introducing WBqueryR",
+      "item": "http://mathiasweidinger.github.io/post/2022-11-01-introducing-wbqueryr/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introducing WBqueryR",
+  "name": "Introducing WBqueryR",
+  "description": "Let me set the scene. You find yourself studying graduate economics and are tasked to compile as much household expenditure data from low- and middle-income countries - or LMICs - as you can possibly muster.1 You think you are smart and immediately navigate to the World Bank’s Microdata Library to search, find, and download household expenditure data on countries from Algeria to Zimbabwe.2 Not long into your quest, however, you start to get side-tracked.",
+  "keywords": [
+    "R", "productivity", "webscraping", "R-packages"
+  ],
+  "articleBody": " Let me set the scene. You find yourself studying graduate economics and are tasked to compile as much household expenditure data from low- and middle-income countries - or LMICs - as you can possibly muster.1 You think you are smart and immediately navigate to the World Bank’s Microdata Library to search, find, and download household expenditure data on countries from Algeria to Zimbabwe.2 Not long into your quest, however, you start to get side-tracked.\nThere are thousands of disparate data sets for the same country and year, data sets with similar names but different content, and all the while you must click back and forth through the myriads of variable descriptions to find out, whether expenditure was even captured by any of them (and if so, by which, and how was it measured…). Desperately, you resort to downloading and searching the surveys’ code books for clues. Not all of them are your friendly neighborhood searchable PDFs, though. To make matters worse, many are not written in English. Though you don’t speak the local language of where the survey was conducted, chances are you will soon find yourself scanning for matumizi, Pengeluaran, desembolso, or almasrufat (Yes, online translation is great; and no, you cannot afford to lose time learning Al-abjadiyah scripting). What began as a quick assignment takes up your entire afternoon and, as dusk sets in, you close your laptop in defeat and move on to your evening routine of Netflix and Chilll’d.\nIf you find this totally made-up thought experiment intriguing as well, there are two things I wanna tell you:\nI feel you. It’s okay.\n There is hope - at least for R users.\n  WBqueryR is my very first R-package. I made it to automate tedious queries like the ones described above from within R. Its main function WBqueryR::WBquery() takes user-defined search parameters and a list of keywords as input, downloads code books that meet the search criteria, and queries the variable labels in them for the presence of the keywords. It implements the following three steps:\nGather codebooks for (a subset of) all datasets listed in the Microdata Library, using the World Bank’s API.\n Score the variable labels (descriptions) in these codebooks for the presence of key words provided.\n Return a list of tibbles for variables with a matching score above the accuracy threshold.\n  Say you are interested in obtaining data on total consumption and expenditure for households in Nigeria, South Africa, or Vietnam. You are only interested in data that was collected between 2000 and 2019, and which is either in the public domain or else open access. Lastly, you want the results to match your key words at list by 60%. The example below queries the Microdata Library to find data that suits your needs:\nlibrary(WBqueryR) my_example    Click to see output  # gathering codebooks... # scoring for key word 1/2 (total consumption)... # scoring for key word 2/2 (total expenditure)... # Search complete! Print results in the console? (type y for YES, n for NO):  When WBqueryR::WBquery() has completed the search, the user is prompted to decide, whether a summary of the search results should be printed in the console or not. Typing y into the console will print the summary, whereas n will not. Let us see what the summary looks like for the example above:\n# Search complete! Print results in the console? (type y for YES, n for NO):y   Click to see output   # 5 result(s) for --total consumption-- in 2 library item(s): # NGA_2018_GHSP-W4_v03_M # s7bq2b (CONSUMPTION UNIT) - 67% match # s7bq2b_os (OTHER CONSUMPTION UNIT) - 63% match # s7bq2c (CONSUMPTION SIZE) - 61% match # # NGA_2015_GHSP-W3_v02_M # totcons (Total consumption per capita) - 61% match # totcons (Total consumption per capita) - 61% match # # # 3 result(s) for --total expenditure-- in 2 library item(s): # NGA_2012_GHSP-W2_v02_M # s2q19i (AGGREGATE EXPENDITURE) - 60% match # # NGA_2010_GHSP-W1_v03_M # s2aq23i (aggregate expenditure) - 61% match # s2bq14i (aggregate expenditure) - 61% match  Note that no matter whether you choose to display the summary or not, all the information necessary to find the data later has been assigned to the new R-object my_example in your environment. This object is a list of 2 items - one for each key word - and each of these items includes tibbles of varying sizes that correspond to the datasets in the Microdata Library for which results have been found. Every tibble includes information on the matched variables: their name, label, and matching score.\nThe package’s installation and usage are described in more detail on the github repo where it lives. While it is far from perfect, I invite you to try out WBqueryR and, while you are at it, give feedback so we can improve it. Hopefully, it will save you some troubles next time you’re hunting for data. Now on to that ice cream!\n This term is often used to jointly refer to those countries, which the World Bank classifies as either low-income, lower-middle-income, or upper-middle-income in their annual assessment based on GNI per capita estimates↩︎\n For those uninitiated, the Microdata Library is a humongous database of more than 5300 microeconomic survey datasets as of September 2023. It is also growing; Just about a year earlier the number was below 4000.↩︎\n   ",
+  "wordCount" : "939",
+  "inLanguage": "en",
+  "datePublished": "2022-11-01T00:00:00Z",
+  "dateModified": "2022-11-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Mathias Weidinger"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://mathiasweidinger.github.io/post/2022-11-01-introducing-wbqueryr/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mathias Weidinger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://mathiasweidinger.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://mathiasweidinger.github.io/" accesskey="h" title="Mathias Weidinger (Alt + H)">Mathias Weidinger</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://mathiasweidinger.github.io/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://mathiasweidinger.github.io/research" title="Research">
+                    <span>Research</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://mathiasweidinger.github.io/teaching" title="Teaching">
+                    <span>Teaching</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://mathiasweidinger.github.io/vita" title="Vita">
+                    <span>Vita</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://mathiasweidinger.github.io/post" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://mathiasweidinger.github.io/search" title="Find">
+                    <span>Find</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Introducing WBqueryR
+    </h1>
+    <div class="post-meta"><span title='2022-11-01 00:00:00 +0000 UTC'>November 1, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Mathias Weidinger
+
+</div>
+  </header> 
+  <div class="post-content">
+
+
+<p>Let me set the scene. You find yourself studying graduate economics and are tasked to compile as much household expenditure data from low- and middle-income countries - or LMICs - as you can possibly muster.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> You think you are smart and immediately navigate to the World Bank’s <a href="https://microdata.worldbank.org/index.php/home">Microdata Library</a> to search, find, and download household expenditure data on countries from Algeria to Zimbabwe.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Not long into your quest, however, you start to get side-tracked.</p>
+<p>There are thousands of disparate data sets for the same country and year, data sets with similar names but different content, and all the while you must click back and forth through the myriads of variable descriptions to find out, whether expenditure was even captured by any of them (and if so, by which, and how was it measured…). Desperately, you resort to downloading and searching the surveys’ code books for clues. Not all of them are your friendly neighborhood searchable PDFs, though. To make matters worse, many are not written in English. Though you don’t speak the local language of where the survey was conducted, chances are you will soon find yourself scanning for <em>matumizi</em>, <em>Pengeluaran</em>, <em>desembolso</em>, or <em>almasrufat</em> (Yes, online translation is great; and no, you cannot afford to lose time learning <em>Al-abjadiyah</em> scripting). What began as a quick assignment takes up your entire afternoon and, as dusk sets in, you close your laptop in defeat and move on to your evening routine of Netflix and Chilll’d.</p>
+<p><img src="https://www.benandjerrys.ca/files/live/sites/systemsite/files/flavors/products/ca/pints/open-closed-pints/can-eng-non-dairy-netflix-category-open.png" /></p>
+<p>If you find this totally made-up thought experiment intriguing as well, there are two things I wanna tell you:</p>
+<ol style="list-style-type: decimal">
+<li><p>I feel you. It’s okay.</p></li>
+<li><p>There is hope - at least for R users.</p></li>
+</ol>
+<p><a href="https://github.com/mathiasweidinger/WBqueryR">WBqueryR</a> is my very first R-package. I made it to automate tedious queries like the ones described above from within R. Its main function <code>WBqueryR::WBquery()</code> takes user-defined search parameters and a list of keywords as input, downloads code books that meet the search criteria, and queries the variable labels in them for the presence of the keywords. It implements the following three steps:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Gather</strong> codebooks for (a subset of) all datasets listed in the Microdata Library, using the World Bank’s API.</p></li>
+<li><p><strong>Score</strong> the variable labels (descriptions) in these codebooks for the presence of key words provided.</p></li>
+<li><p><strong>Return</strong> a list of tibbles for variables with a matching score above the accuracy threshold.</p></li>
+</ol>
+<p>Say you are interested in obtaining data on total consumption and expenditure for households in Nigeria, South Africa, or Vietnam. You are only interested in data that was collected between 2000 and 2019, and which is either in the public domain or else open access. Lastly, you want the results to match your key words at list by 60%. The example below queries the Microdata Library to find data that suits your needs:</p>
+<pre><code>library(WBqueryR)
+
+my_example &lt;- WBquery(
+    key = c(&quot;total consumption&quot;, &quot;total expenditure&quot;), # enter your keywords
+    
+    from = 2000,                            # lower time limit
+    to = 2019,                              # upper time limit
+    country = c(&quot;nigeria&quot;, &quot;zaf&quot;, &quot;vnm&quot;),   # specify countries
+    collection = c(&quot;lsms&quot;),                 # only look for lsms data
+    access = c(&quot;open&quot;, &quot;public&quot;),           # specify access
+    accuracy = 0.6                          # set accuracy to 60%
+    )</code></pre>
+<details>
+<summary>
+Click to see output
+</summary>
+<pre class="r"><code>#&gt; gathering codebooks...
+#&gt; scoring for key word 1/2 (total consumption)...
+#&gt; scoring for key word 2/2 (total expenditure)...
+#&gt; Search complete! Print results in the console? (type y for YES, n for NO):</code></pre>
+</details>
+<p>When <code>WBqueryR::WBquery()</code> has completed the search, the user is prompted to decide, whether a summary of the search results should be printed in the console or not.
+Typing <code>y</code> into the console will print the summary, whereas <code>n</code> will not. Let us see what the summary looks like for the example above:</p>
+<pre class="r"><code>#&gt; Search complete! Print results in the console? (type y for YES, n for NO):y</code></pre>
+<details>
+<summary>
+Click to see output
+</summary>
+<pre class="r"><code>   
+#&gt; 5 result(s) for --total consumption-- in 2 library item(s):
+#&gt;    NGA_2018_GHSP-W4_v03_M
+#&gt;        s7bq2b (CONSUMPTION UNIT) - 67% match
+#&gt;        s7bq2b_os (OTHER CONSUMPTION UNIT) - 63% match
+#&gt;        s7bq2c (CONSUMPTION SIZE) - 61% match
+#&gt;    
+#&gt;    NGA_2015_GHSP-W3_v02_M
+#&gt;        totcons (Total consumption per capita) - 61% match
+#&gt;        totcons (Total consumption per capita) - 61% match
+#&gt;    
+#&gt;   
+#&gt; 3 result(s) for --total expenditure-- in 2 library item(s):
+#&gt;    NGA_2012_GHSP-W2_v02_M
+#&gt;        s2q19i (AGGREGATE EXPENDITURE) - 60% match
+#&gt;    
+#&gt;    NGA_2010_GHSP-W1_v03_M
+#&gt;        s2aq23i (aggregate expenditure) - 61% match
+#&gt;        s2bq14i (aggregate expenditure) - 61% match</code></pre>
+</details>
+<p>Note that no matter whether you choose to display the summary or not, all the information necessary to find the data later has been assigned to the new R-object <code>my_example</code> in your environment. This object is a list of 2 items - one for each key word - and each of these items includes tibbles of varying sizes that correspond to the datasets in the Microdata Library for which results have been found. Every tibble includes information on the matched variables: their name, label, and matching score.</p>
+<p>The package’s installation and usage are described in more detail on the github repo where it lives. While it is far from perfect, I invite you to try out <a href="https://github.com/mathiasweidinger/WBqueryR">WBqueryR</a> and, while you are at it, give feedback so we can improve it. Hopefully, it will save you some troubles next time you’re hunting for data. Now on to that ice cream!</p>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>This term is often used to jointly refer to those countries, which the World Bank classifies as either low-income, lower-middle-income, or upper-middle-income in their annual assessment based on GNI per capita estimates<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>For those uninitiated, the Microdata Library is a humongous database of more than 5300 microeconomic survey datasets as of September 2023. It is also growing; Just about a year earlier the number was below 4000.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://mathiasweidinger.github.io/tags/r/">R</a></li>
+      <li><a href="http://mathiasweidinger.github.io/tags/productivity/">productivity</a></li>
+      <li><a href="http://mathiasweidinger.github.io/tags/webscraping/">webscraping</a></li>
+      <li><a href="http://mathiasweidinger.github.io/tags/r-packages/">R-packages</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://mathiasweidinger.github.io/post/2021-12-13-directories-org/directories/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>Intentional file structures in bash</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2020-2023 <a href="http://mathiasweidinger.github.io/">Mathias Weidinger</a>
+    &#x2022;
+    Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a>,
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>, and
+        <a href="https://pkgs.rstudio.com/bookdown/" rel="noopener" target="_blank"> Bookdown</a></a>        
+    &#x2022;
+        Original content on this website is licensed under <a href="http://www.wtfpl.net/txt/copying/" rel ="noopener noreferrer" target="_blank">WTFPL</a> unless stated otherwise.
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

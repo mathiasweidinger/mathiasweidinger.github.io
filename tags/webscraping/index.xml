@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on Mathias Weidinger</title>
-    <link>http://mathiasweidinger.github.io/post/</link>
-    <description>Recent content in Posts on Mathias Weidinger</description>
+    <title>webscraping on Mathias Weidinger</title>
+    <link>http://mathiasweidinger.github.io/tags/webscraping/</link>
+    <description>Recent content in webscraping on Mathias Weidinger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/tags/webscraping/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introducing WBqueryR</title>
       <link>http://mathiasweidinger.github.io/post/2022-11-01-introducing-wbqueryr/</link>
@@ -14,15 +14,6 @@
       
       <guid>http://mathiasweidinger.github.io/post/2022-11-01-introducing-wbqueryr/</guid>
       <description>Let me set the scene. You find yourself studying graduate economics and are tasked to compile as much household expenditure data from low- and middle-income countries - or LMICs - as you can possibly muster.1 You think you are smart and immediately navigate to the World Bank’s Microdata Library to search, find, and download household expenditure data on countries from Algeria to Zimbabwe.2 Not long into your quest, however, you start to get side-tracked.</description>
-    </item>
-    
-    <item>
-      <title>Intentional file structures in bash</title>
-      <link>http://mathiasweidinger.github.io/post/2021-12-13-directories-org/directories/</link>
-      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://mathiasweidinger.github.io/post/2021-12-13-directories-org/directories/</guid>
-      <description>Remember the times when, as a kid, you were only allowed to go out to play if you had cleared up the chaos in your room first? While we might not have appreciated our parents’ persistence on the matter all too much back then (I sure did not), I think most people would agree - once they’re adults, that is - that it helped them with building good habits.</description>
     </item>
     
   </channel>

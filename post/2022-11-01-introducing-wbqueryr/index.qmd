@@ -1,0 +1,26 @@
+---
+title: Introducing WBqueryR
+author: 'Mathias Weidinger'
+date: '2022-11-01'
+slug: []
+categories: [R]
+tags: ["R", "productivity", "webscraping", "R-packages"]
+
+hidemeta: false
+showtoc: false
+showBreadCrumbs: false
+
+draft: true
+---
+
+Let me set the scene. You find yourself studying graduate economics and are tasked to compile as much household expenditure data from low- and middle-income countries - or LMICs^[This term is often used to jointly refer to those countries, which the World Bank classifies as either low-income, lower-middle-income, or upper-middle-income in their annual assessment based on GNI per capita estimates] - as you can possibly muster. You think you are smart and immediately navigate to the World Bank's [Microdata Library](https://microdata.worldbank.org/index.php/home) ^[For those uninitiated, the Microdata Library is a humongous database of more than 5300 microeconomic survey datasets as of September 2023. It is also growing; Just about a year earlier the number was below 4000.] to search, find, and download household expenditure data on countries from Algeria to Zimbabwe.
+
+Not long into your quest, however, you start to get side-tracked. There are disparate datasets for the same country and year, datasets with similar names but different content, and all the while you must click back and forth through the variable descriptions to find out, whether expenditure was even captured by the survey (and if so, how it was measured). God knows, you might even have to download and search through code books (side note: why are so many of those PDFs not searchable?).What began as a seemingly quick assignment takes up your entire afternoon and, once dusk sets in, you admit defeat, slam your laptop shut, and retreat to your usual evening ritual of Netflix and Ramen.
+
+If this  scenario (entirely fictitious, of course) seems familiar to you, there are two things I want to tell you:
+
+1. I feel you.
+
+2. There is hope.
+
+I might have come up with a way to make these repetitive data queries a little less of a hustle. The 

@@ -1,0 +1,103 @@
+---
+title: Introducing WBqueryR
+author: 'Mathias Weidinger'
+date: '2022-11-01'
+slug: []
+categories: [R]
+tags: ["R", "productivity", "webscraping", "R-packages"]
+
+hidemeta: false
+showtoc: false
+showBreadCrumbs: false
+
+draft: false
+---
+
+Let me set the scene. You find yourself studying graduate economics and are tasked to compile as much household expenditure data from low- and middle-income countries - or LMICs - as you can possibly muster.^[This term is often used to jointly refer to those countries, which the World Bank classifies as either low-income, lower-middle-income, or upper-middle-income in their annual assessment based on GNI per capita estimates] You think you are smart and immediately navigate to the World Bank's [Microdata Library](https://microdata.worldbank.org/index.php/home) to search, find, and download household expenditure data on countries from Algeria to Zimbabwe.^[For those uninitiated, the Microdata Library is a humongous database of more than 5300 microeconomic survey datasets as of September 2023. It is also growing; Just about a year earlier the number was below 4000.] Not long into your quest, however, you start to get side-tracked. 
+
+There are thousands of disparate data sets for the same country and year, data sets with similar names but different content, and all the while you must click back and forth through the myriads of variable descriptions to find out, whether expenditure was even captured by any of them (and if so, by which, and how was it measured...). Desperately, you resort to downloading and searching the surveys' code books for clues. Not all of them are your friendly neighborhood searchable PDFs, though. To make matters worse, many are not written in English. Though you don't speak the local language of where the survey was conducted, chances are you will soon find yourself scanning for *matumizi*, *Pengeluaran*, *desembolso*, or *almasrufat* (Yes, online translation is great; and no, you cannot afford to lose time learning *Al-abjadiyah* scripting). What began as a quick assignment takes up your entire afternoon and, as dusk sets in, you close your laptop in defeat and move on to your evening routine of Netflix and Chilll'd.
+
+![](https://www.benandjerrys.ca/files/live/sites/systemsite/files/flavors/products/ca/pints/open-closed-pints/can-eng-non-dairy-netflix-category-open.png)
+
+If you find this totally made-up thought experiment intriguing as well, there are two things I wanna tell you:
+
+1. I feel you. It's okay.
+
+2. There is hope - at least for R users.
+
+[WBqueryR](https://github.com/mathiasweidinger/WBqueryR) is my very first R-package. I made it to automate tedious queries like the ones described above from within R. Its main function `WBqueryR::WBquery()` takes user-defined search parameters and a list of keywords as input, downloads code books that meet the search criteria, and queries the variable labels in them for the presence of the keywords. It implements the following three steps:
+
+1. **Gather** codebooks for (a subset of) all datasets listed in the Microdata Library, using the World Bank's API.
+
+2. **Score** the variable labels (descriptions) in these codebooks for the presence of key words provided.
+
+3. **Return** a list of tibbles for variables with a matching score above the accuracy threshold.
+
+Say you are interested in obtaining data on total consumption and expenditure for households in Nigeria, South Africa, or Vietnam. You are only interested in data that was collected between 2000 and 2019, and which is either in the public domain or else open access. Lastly, you want the results to match your key words at list by 60%. The example below queries the Microdata Library to find data that suits your needs:
+
+```
+library(WBqueryR)
+
+my_example <- WBquery(
+    key = c("total consumption", "total expenditure"), # enter your keywords
+    
+    from = 2000,                            # lower time limit
+    to = 2019,                              # upper time limit
+    country = c("nigeria", "zaf", "vnm"),   # specify countries
+    collection = c("lsms"),                 # only look for lsms data
+    access = c("open", "public"),           # specify access
+    accuracy = 0.6                          # set accuracy to 60%
+    )
+```
+
+<details>
+
+<summary>Click to see output</summary>
+
+``` r
+#> gathering codebooks...
+#> scoring for key word 1/2 (total consumption)...
+#> scoring for key word 2/2 (total expenditure)...
+#> Search complete! Print results in the console? (type y for YES, n for NO):
+```
+
+</details>
+
+When `WBqueryR::WBquery()` has completed the search, the user is prompted to decide, whether a summary of the search results should be printed in the console or not.
+Typing `y` into the console will print the summary, whereas `n` will not. Let us see what the summary looks like for the example above:
+
+``` r
+#> Search complete! Print results in the console? (type y for YES, n for NO):y
+```
+
+<details>
+
+<summary>Click to see output</summary>
+
+``` r
+   
+#> 5 result(s) for --total consumption-- in 2 library item(s):
+#>    NGA_2018_GHSP-W4_v03_M
+#>        s7bq2b (CONSUMPTION UNIT) - 67% match
+#>        s7bq2b_os (OTHER CONSUMPTION UNIT) - 63% match
+#>        s7bq2c (CONSUMPTION SIZE) - 61% match
+#>    
+#>    NGA_2015_GHSP-W3_v02_M
+#>        totcons (Total consumption per capita) - 61% match
+#>        totcons (Total consumption per capita) - 61% match
+#>    
+#>   
+#> 3 result(s) for --total expenditure-- in 2 library item(s):
+#>    NGA_2012_GHSP-W2_v02_M
+#>        s2q19i (AGGREGATE EXPENDITURE) - 60% match
+#>    
+#>    NGA_2010_GHSP-W1_v03_M
+#>        s2aq23i (aggregate expenditure) - 61% match
+#>        s2bq14i (aggregate expenditure) - 61% match
+```
+
+</details>
+
+Note that no matter whether you choose to display the summary or not, all the information necessary to find the data later has been assigned to the new R-object `my_example` in your environment. This object is a list of 2 items - one for each key word - and each of these items includes tibbles of varying sizes that correspond to the datasets in the Microdata Library for which results have been found. Every tibble includes information on the matched variables: their name, label, and matching score.
+
+The package's installation and usage are described in more detail on the github repo where it lives. While it is far from perfect, I invite you to try out [WBqueryR](https://github.com/mathiasweidinger/WBqueryR) and, while you are at it, give feedback so we can improve it. Hopefully, it will save you some troubles next time you're hunting for data. Now on to that ice cream!

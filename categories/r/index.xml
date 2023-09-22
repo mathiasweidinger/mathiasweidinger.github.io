@@ -6,16 +6,14 @@
     <description>Recent content in R on Mathias Weidinger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hello R Markdown</title>
-      <link>http://mathiasweidinger.github.io/post/2020-12-01-r-rmarkdown/</link>
-      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <title>Introducing WBqueryR</title>
+      <link>http://mathiasweidinger.github.io/post/2022-11-01-introducing-wbqueryr/</link>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://mathiasweidinger.github.io/post/2020-12-01-r-rmarkdown/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.</description>
+      <guid>http://mathiasweidinger.github.io/post/2022-11-01-introducing-wbqueryr/</guid>
+      <description>Let me set the scene. You find yourself studying graduate economics and are tasked to compile as much household expenditure data from low- and middle-income countries - or LMICs - as you can possibly muster.1 You think you are smart and immediately navigate to the World Bank’s Microdata Library to search, find, and download household expenditure data on countries from Algeria to Zimbabwe.2 Not long into your quest, however, you start to get side-tracked.</description>
     </item>
     
   </channel>
