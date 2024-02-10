@@ -1,0 +1,16 @@
+---
+title: Recasting the Precautionary Principle in Times of Environmental Crisis
+author: 'Mathias Weidinger'
+date: '2023-11-01'
+slug: []
+categories: [Climate]
+tags: ["climate action", "philosophy", "ethics", "decision making", "economics"]
+
+hidemeta: false
+showtoc: false
+showBreadCrumbs: false
+
+draft: true
+---
+![credits: bioninja](https://ib.bioninja.com.au/_Media/precautionary-principle_med.jpeg)
+
