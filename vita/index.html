@@ -97,7 +97,7 @@
   "keywords": [
     
   ],
-  "articleBody": "Short Bio  Mathias Weidinger is a full-time research assistant in climate compatible growth at the Smith School of Enterprise and the Environment, University of Oxford. He received his B.A. in european studies from the Maastricht University in 2018, an M.Sc. in public policy and human development jointly awarded by UNU-MERIT and Maastricht University in 2021, and a research M.Sc. in economics from Maastricht University in 2023. His research focuses on environmental and ressource economics, development economics, and inferential methods for spatial data.\n Curriculum Vitae   #embed-pdf-container { position: relative; width: 100%; height: auto; min-height: 20vh; } .pdf-canvas { border: 1px solid black; direction: ltr; width: 100%; height: auto; display: none; } #the-canvas { border: 1px solid black; direction: ltr; width: 100%; height: auto; display: none; } .pdf-loadingWrapper { display: none; justify-content: center; align-items: center; width: 100%; height: 350px; } .pdf-loading { display: inline-block; width: 50px; height: 50px; border: 3px solid #d2d0d0;; border-radius: 50%; border-top-color: #383838; animation: spin 1s ease-in-out infinite; -webkit-animation: spin 1s ease-in-out infinite; } #overlayText { word-wrap: break-word; display: grid; justify-content: end; } #overlayText a { position: relative; top: 10px; right: 4px; color: #000; margin: auto; background-color: #eeeeee; padding: 0.3em 1em; border: solid 2px; border-radius: 12px; border-color: #00000030; text-decoration: none; } #overlayText svg { height: clamp(1em, 2vw, 1.4em); width: clamp(1em, 2vw, 1.4em); } @keyframes spin { to { -webkit-transform: rotate(360deg); } } @-webkit-keyframes spin { to { -webkit-transform: rotate(360deg); } }        Previous Next   /   [pdf]   View the PDF file here.  (function(){ var url = '\\/weidinger_cv.pdf'; var hidePaginator = \"\" === \"true\"; var hideLoader = \"\" === \"true\"; var selectedPageNum = parseInt(\"\") || 1; var pdfjsLib = window['pdfjs-dist/build/pdf']; if (pdfjsLib.GlobalWorkerOptions.workerSrc == '') pdfjsLib.GlobalWorkerOptions.workerSrc = \"http:\\/\\/mathiasweidinger.github.io\\/\" + 'js/pdf-js/build/pdf.worker.js'; var pdfDoc = null, pageNum = selectedPageNum, pageRendering = false, pageNumPending = null, scale = 3, canvas = document.getElementById('pdf-canvas-cab4fe06'), ctx = canvas.getContext('2d'), paginator = document.getElementById(\"pdf-paginator-cab4fe06\"), loadingWrapper = document.getElementById('pdf-loadingWrapper-cab4fe06'); showPaginator(); showLoader(); function renderPage(num) { pageRendering = true; pdfDoc.getPage(num).then(function(page) { var viewport = page.getViewport({scale: scale}); canvas.height = viewport.height; canvas.width = viewport.width; var renderContext = { canvasContext: ctx, viewport: viewport }; var renderTask = page.render(renderContext); renderTask.promise.then(function() { pageRendering = false; showContent(); if (pageNumPending !== null) { renderPage(pageNumPending); pageNumPending = null; } }); }); document.getElementById('pdf-pagenum-cab4fe06').textContent = num; } function showContent() { loadingWrapper.style.display = 'none'; canvas.style.display = 'block'; } function showLoader() { if(hideLoader) return loadingWrapper.style.display = 'flex'; canvas.style.display = 'none'; } function showPaginator() { if(hidePaginator) return paginator.style.display = 'block'; } function queueRenderPage(num) { if (pageRendering) { pageNumPending = num; } else { renderPage(num); } } function onPrevPage() { if (pageNum = pdfDoc.numPages) { return; } pageNum++; queueRenderPage(pageNum); } document.getElementById('pdf-next-cab4fe06').addEventListener('click', onNextPage); pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) { pdfDoc = pdfDoc_; var numPages = pdfDoc.numPages; document.getElementById('pdf-pagecount-cab4fe06').textContent = numPages; if(pageNum  numPages) { pageNum = numPages } renderPage(pageNum); }); })();  ",
+  "articleBody": "Short Bio  Mathias Weidinger is a full-time research assistant in climate compatible growth at the Smith School of Enterprise and the Environment, University of Oxford. He received his B.A. in european studies from the Maastricht University in 2018, an M.Sc. in public policy and human development jointly awarded by UNU-MERIT and Maastricht University in 2021, and a research M.Sc. in economics from Maastricht University in 2023. His research focuses on environmental and ressource economics, development economics, and inferential methods for spatial data.\n Curriculum Vitae   #embed-pdf-container { position: relative; width: 100%; height: auto; min-height: 20vh; } .pdf-canvas { border: 1px solid black; direction: ltr; width: 100%; height: auto; display: none; } #the-canvas { border: 1px solid black; direction: ltr; width: 100%; height: auto; display: none; } .pdf-loadingWrapper { display: none; justify-content: center; align-items: center; width: 100%; height: 350px; } .pdf-loading { display: inline-block; width: 50px; height: 50px; border: 3px solid #d2d0d0;; border-radius: 50%; border-top-color: #383838; animation: spin 1s ease-in-out infinite; -webkit-animation: spin 1s ease-in-out infinite; } #overlayText { word-wrap: break-word; display: grid; justify-content: end; } #overlayText a { position: relative; top: 10px; right: 4px; color: #000; margin: auto; background-color: #eeeeee; padding: 0.3em 1em; border: solid 2px; border-radius: 12px; border-color: #00000030; text-decoration: none; } #overlayText svg { height: clamp(1em, 2vw, 1.4em); width: clamp(1em, 2vw, 1.4em); } @keyframes spin { to { -webkit-transform: rotate(360deg); } } @-webkit-keyframes spin { to { -webkit-transform: rotate(360deg); } }        Previous Next   /   [pdf]   View the PDF file here.  (function(){ var url = '\\/weidinger_cv_20240210.pdf'; var hidePaginator = \"\" === \"true\"; var hideLoader = \"\" === \"true\"; var selectedPageNum = parseInt(\"\") || 1; var pdfjsLib = window['pdfjs-dist/build/pdf']; if (pdfjsLib.GlobalWorkerOptions.workerSrc == '') pdfjsLib.GlobalWorkerOptions.workerSrc = \"http:\\/\\/mathiasweidinger.github.io\\/\" + 'js/pdf-js/build/pdf.worker.js'; var pdfDoc = null, pageNum = selectedPageNum, pageRendering = false, pageNumPending = null, scale = 3, canvas = document.getElementById('pdf-canvas-9631809e'), ctx = canvas.getContext('2d'), paginator = document.getElementById(\"pdf-paginator-9631809e\"), loadingWrapper = document.getElementById('pdf-loadingWrapper-9631809e'); showPaginator(); showLoader(); function renderPage(num) { pageRendering = true; pdfDoc.getPage(num).then(function(page) { var viewport = page.getViewport({scale: scale}); canvas.height = viewport.height; canvas.width = viewport.width; var renderContext = { canvasContext: ctx, viewport: viewport }; var renderTask = page.render(renderContext); renderTask.promise.then(function() { pageRendering = false; showContent(); if (pageNumPending !== null) { renderPage(pageNumPending); pageNumPending = null; } }); }); document.getElementById('pdf-pagenum-9631809e').textContent = num; } function showContent() { loadingWrapper.style.display = 'none'; canvas.style.display = 'block'; } function showLoader() { if(hideLoader) return loadingWrapper.style.display = 'flex'; canvas.style.display = 'none'; } function showPaginator() { if(hidePaginator) return paginator.style.display = 'block'; } function queueRenderPage(num) { if (pageRendering) { pageNumPending = num; } else { renderPage(num); } } function onPrevPage() { if (pageNum = pdfDoc.numPages) { return; } pageNum++; queueRenderPage(pageNum); } document.getElementById('pdf-next-9631809e').addEventListener('click', onNextPage); pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) { pdfDoc = pdfDoc_; var numPages = pdfDoc.numPages; document.getElementById('pdf-pagecount-9631809e').textContent = numPages; if(pageNum  numPages) { pageNum = numPages } renderPage(pageNum); }); })();  ",
   "wordCount" : "446",
   "inLanguage": "en",
   "datePublished": "2021-09-18T00:00:00Z",
@@ -293,36 +293,36 @@
   @-webkit-keyframes spin {
     to { -webkit-transform: rotate(360deg); }
   }
-  </style><div class="embed-pdf-container" id="embed-pdf-container-cab4fe06">
-    <div class="pdf-loadingWrapper" id="pdf-loadingWrapper-cab4fe06">
-        <div class="pdf-loading" id="pdf-loading-cab4fe06"></div>
+  </style><div class="embed-pdf-container" id="embed-pdf-container-9631809e">
+    <div class="pdf-loadingWrapper" id="pdf-loadingWrapper-9631809e">
+        <div class="pdf-loading" id="pdf-loading-9631809e"></div>
     </div>
     <div id="overlayText">
-      <a href="/weidinger_cv.pdf" aria-label="Download" download>
+      <a href="/weidinger_cv_20240210.pdf" aria-label="Download" download>
         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
             <path d="M9 13c.3 0 .5-.1.7-.3L15.4 7 14 5.6l-4 4V1H8v8.6l-4-4L2.6 7l5.7 5.7c.2.2.4.3.7.3zm-7 2h14v2H2z" />
         </svg>
       </a>
     </div>
-    <canvas class="pdf-canvas" id="pdf-canvas-cab4fe06"></canvas>
+    <canvas class="pdf-canvas" id="pdf-canvas-9631809e"></canvas>
 </div>
 
-<div class="pdf-paginator" id="pdf-paginator-cab4fe06">
-    <button id="pdf-prev-cab4fe06">Previous</button>
-    <button id="pdf-next-cab4fe06">Next</button> &nbsp; &nbsp;
+<div class="pdf-paginator" id="pdf-paginator-9631809e">
+    <button id="pdf-prev-9631809e">Previous</button>
+    <button id="pdf-next-9631809e">Next</button> &nbsp; &nbsp;
     <span>
-      <span class="pdf-pagenum" id="pdf-pagenum-cab4fe06"></span> / <span class="pdf-pagecount" id="pdf-pagecount-cab4fe06"></span>
+      <span class="pdf-pagenum" id="pdf-pagenum-9631809e"></span> / <span class="pdf-pagecount" id="pdf-pagecount-9631809e"></span>
     </span>
-    <a class="pdf-source" id="pdf-source-cab4fe06" href="/weidinger_cv.pdf">[pdf]</a>
+    <a class="pdf-source" id="pdf-source-9631809e" href="/weidinger_cv_20240210.pdf">[pdf]</a>
 </div>
 
 <noscript>
-View the PDF file <a class="pdf-source" id="pdf-source-noscript-cab4fe06" href="/weidinger_cv.pdf">here</a>.
+View the PDF file <a class="pdf-source" id="pdf-source-noscript-9631809e" href="/weidinger_cv_20240210.pdf">here</a>.
 </noscript>
 
 <script type="text/javascript">
     (function(){
-    var url = '\/weidinger_cv.pdf';
+    var url = '\/weidinger_cv_20240210.pdf';
 
     var hidePaginator = "" === "true";
     var hideLoader = "" === "true";
@@ -341,10 +341,10 @@ View the PDF file <a class="pdf-source" id="pdf-source-noscript-cab4fe06" href="
         pageRendering = false,
         pageNumPending = null,
         scale = 3,
-        canvas = document.getElementById('pdf-canvas-cab4fe06'),
+        canvas = document.getElementById('pdf-canvas-9631809e'),
         ctx = canvas.getContext('2d'),
-        paginator = document.getElementById("pdf-paginator-cab4fe06"),
-        loadingWrapper = document.getElementById('pdf-loadingWrapper-cab4fe06');
+        paginator = document.getElementById("pdf-paginator-9631809e"),
+        loadingWrapper = document.getElementById('pdf-loadingWrapper-9631809e');
 
 
     
@@ -382,7 +382,7 @@ View the PDF file <a class="pdf-source" id="pdf-source-noscript-cab4fe06" href="
       });
 
       
-      document.getElementById('pdf-pagenum-cab4fe06').textContent = num;
+      document.getElementById('pdf-pagenum-9631809e').textContent = num;
     }
 
     
@@ -426,7 +426,7 @@ View the PDF file <a class="pdf-source" id="pdf-source-noscript-cab4fe06" href="
       pageNum--;
       queueRenderPage(pageNum);
     }
-    document.getElementById('pdf-prev-cab4fe06').addEventListener('click', onPrevPage);
+    document.getElementById('pdf-prev-9631809e').addEventListener('click', onPrevPage);
 
     
 
@@ -437,14 +437,14 @@ View the PDF file <a class="pdf-source" id="pdf-source-noscript-cab4fe06" href="
       pageNum++;
       queueRenderPage(pageNum);
     }
-    document.getElementById('pdf-next-cab4fe06').addEventListener('click', onNextPage);
+    document.getElementById('pdf-next-9631809e').addEventListener('click', onNextPage);
 
     
 
     pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
       pdfDoc = pdfDoc_;
       var numPages = pdfDoc.numPages;
-      document.getElementById('pdf-pagecount-cab4fe06').textContent = numPages;
+      document.getElementById('pdf-pagecount-9631809e').textContent = numPages;
 
       
       if(pageNum > numPages) {
@@ -468,7 +468,7 @@ View the PDF file <a class="pdf-source" id="pdf-source-noscript-cab4fe06" href="
     </main>
     
 <footer class="footer">
-    <span>&copy; 2020-2023 <a href="http://mathiasweidinger.github.io/">Mathias Weidinger</a>
+    <span>&copy; 2020-2024 <a href="http://mathiasweidinger.github.io/">Mathias Weidinger</a>
     &#x2022;
     Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a>,
