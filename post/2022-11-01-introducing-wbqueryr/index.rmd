@@ -17,7 +17,7 @@ Let me set the scene. You find yourself studying graduate economics and are task
 
 There are thousands of disparate data sets for the same country and year, data sets with similar names but different content, and all the while you must click back and forth through the myriads of variable descriptions to find out, whether expenditure was even captured by any of them (and if so, by which, and how was it measured...). Desperately, you resort to downloading and searching the surveys' code books for clues. Not all of them are your friendly neighborhood searchable PDFs, though. To make matters worse, many are not written in English. Though you don't speak the local language of where the survey was conducted, chances are you will soon find yourself scanning for *matumizi*, *Pengeluaran*, *desembolso*, or *almasrufat* (Yes, online translation is great; and no, you cannot afford to lose time learning *Al-abjadiyah* scripting). What began as a quick assignment takes up your entire afternoon and, as dusk sets in, you close your laptop in defeat and move on to your evening routine of Netflix and Chilll'd.
 
-![](https://www.benandjerrys.ca/files/live/sites/systemsite/files/flavors/products/ca/pints/open-closed-pints/can-eng-non-dairy-netflix-category-open.png)
+![Not sponsored - I wish...](nac.png)
 
 If you find this totally made-up thought experiment intriguing as well, there are two things I wanna tell you:
 
