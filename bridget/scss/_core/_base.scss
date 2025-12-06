@@ -1,0 +1,19 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  user-select: none;
+  background: white;
+}
+
+html,
+body {
+  overscroll-behavior-y: none;
+}
+
+a,
+button {
+  cursor: pointer;
+}

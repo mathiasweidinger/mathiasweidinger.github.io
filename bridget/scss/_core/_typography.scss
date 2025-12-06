@@ -1,0 +1,18 @@
+@use 'mixins' as *;
+
+body {
+  line-height: 1.2;
+  font-size: 16px;
+  font-family: 'Geist', sans-serif;
+
+  button {
+    font-family: 'FW', sans-serif;
+  }
+
+  @include min-width('tablet') {
+    font-size: 18px;
+  }
+  @include min-width('laptop') {
+    font-size: 19px;
+  }
+}
