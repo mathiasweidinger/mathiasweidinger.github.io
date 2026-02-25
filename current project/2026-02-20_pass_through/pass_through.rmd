@@ -1,0 +1,19 @@
+---
+title: "Global Food Price Shocks and Pass-throughs in Climate Vulnerable Countries"
+summary: '(with Fulvia Marotta and Jasper Verschuur)'
+cover:
+  image: "http://voxdev.org/sites/default/files/styles/ct_banner_1905x440_/public/2024-02/AdobeStock_223305537sm_0.jpg?itok=8_9rpqWE"
+  alt: <alt text>
+  caption: <text>
+  relative: true
+  responsiveImages: true
+  linkFullImages: false
+ShowReadingTime: false
+slug: []
+categories: []
+tags: []
+draft: false
+---
+> with [Fulvia Marotta](https://fulviamarotta.wixsite.com/fulvia-marotta) and [Jasper Verschuur](https://www.tudelft.nl/staff/j.verschuur/)
+
+**Abstract:** In light of the growing climate and non-climate related pressures on the global food system, this paper addresses three related questions: To what extent do global food price shocks pass through to domestic food prices, how are these pass-throughs conditioned by country-level idiosyncrasies and climate shocks, and can fiscal or trade policy effectively support shock response and longer-term price stabilisation? We estimate global-to-local food price pass-throughs in a Bayesian VAR for most countries in the world using publicly available data sources. To further investigate cross-dependencies in vulnerable countries, we proceed by estimating a Panel BVAR to include multiple covariate shocks for the Sub-Saharan African sub-sample and test whether exogenous shocks to temperature add inflationary pressure to the system. Lastly, we test the interaction of contemporaneous food price and temperature shocks in country-level linear projections.

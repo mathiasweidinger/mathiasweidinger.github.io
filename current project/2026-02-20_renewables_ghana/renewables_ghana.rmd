@@ -1,0 +1,41 @@
+---
+title: "Bridging the Financing Gap: Exploring the Drivers of Clean Energy Project Bankability in Ghana"
+summary: '(with Theophilus Acheampong, Dennis Asare, Amprofi Agyemang, and Bridget Menyeh)'
+cover:
+  image: "https://voxdev.org/sites/default/files/styles/ct_banner_1905x440_/public/2023-11/AdobeStock_27846967832.jpeg?itok=f7skDvq9"
+  alt: <alt text>
+  caption: <text>
+  relative: true
+  responsiveImages: true
+  linkFullImages: false
+
+ShowReadingTime: false
+slug: []
+categories: []
+tags: []
+draft: false
+---
+
+> with [Theophilus Acheampong](https://www.abdn.ac.uk/people/theophilus.acheampong), Dennis Asare, Amprofi Agyemang, and Bridget Menyeh
+
+**Abstract:** Access to finance remains a major constraint for many firms despite the
+potential of Sub-Saharan Africa's clean energy sector to the drive the
+continent's energy transition and access goals. This paper investigates
+the key factors influencing the bankability of clean energy projects in Ghana
+using Partial Least Squares Structural Equation Modelling (PLS-SEM). The study
+examines five latent variables: project readiness, financial structures,
+experienced project teams, risk mitigation, and alignment with Sustainable
+Development Goals (SDGS) and Environmental, Social, and Governance (ESG)
+criteria. A survey was administered to 80 respondents comprising clean energy
+companies, policymakers, and financiers. The PLS-SEM approach was used to
+identify significant relationships between these variables and the overall
+bankability of projects. Our findings show that bankability is multidimensional
+and determined by a combination of direct project enablers and indirect
+interdependencies. Projects are more likely to be bankable if they have clear
+regulatory approvals, defined objectives, and undertaken feasibility studies,
+along with thorough financial modelling. Experienced teams, strong stakeholder
+support, and robust risk mitigation strategies also enhance bankability. While
+SDG-ESG alignment is increasingly important, it plays a supporting rather than
+central role in securing clean energy project financing. The findings provide
+practical insights for policymakers, clean energy developers and financiers in
+Ghana and other emerging economies.

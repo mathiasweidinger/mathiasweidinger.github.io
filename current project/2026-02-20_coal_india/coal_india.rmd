@@ -1,0 +1,19 @@
+---
+title: The Extensive Margin of India's Coal Problem
+summary: (with Sam Fankhauser and Sugandha Srivastav)
+cover:
+  image: "https://voxdev.org/sites/default/files/styles/ct_banner_1905x440_/public/2023-11/AdobeStock_24332415232.jpeg?itok=TWTEMdj4"
+  alt: "India's Coal Problem"
+  caption: "<text>"
+  relative: true # To use relative path for cover image, used in hugo Page-bundles
+  responsiveImages: true
+  linkFullImages: false
+ShowReadingTime: false
+slug: []
+categories: []
+tags: []
+draft: false
+---
+> with [Sam Fankhauser](https://www.smithschool.ox.ac.uk/person/professor-sam-fankhauser) and [Sugandha Srivastav](https://www.sugandhasrivastav.com/)
+
+**Abstract:** Coal is the dirtiest of all the fuels currently used at scale for electricity generation. Its (incomplete) combustion results in smoke that is contaminated with particulate matter and noxious gases which contribute both to local air pollution and global climate change. Note the difference in scale between the two effects. Local residents may prove more sensitive to the tangible (immediate and local) risks associated with inhaling toxic fumes than they are to the (delayed and dispersed) risks from the climate externality. In this paper, we first show empirically how the geographic positioning of Indian coal plants, relative to the population distribution, co-determines the size of their respective negative health externality through down-wind particulate matter pollution. We next calculate the approximate marginal health cost of every major coal plant across India. Our results suggest that the (direct) mortality costs of coal-fired generation, net of all its other adverse effects including climate change, may vastly outweigh the value of electricity produced. Since cleaner alternatives to coal are readily available and competitively priced, this study provides a strong impetus for phasing out coal and concurrently rolling out renewables - starting in areas where the health burden of coal power weighs the heaviest.

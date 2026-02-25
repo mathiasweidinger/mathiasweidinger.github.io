@@ -42,26 +42,27 @@ I check my inbox and reply to emails 1-2 times a day, but sometimes life gets in
       <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>http://mathiasweidinger.github.io/about/</guid>
-      <description>he/him they/them     -- I am a first-year doctoral student at the University of Oxford&amp;rsquo;s Environmental Change Institute and a member of St Edmund Hall. Before starting my DPhil, I worked as a Research Assistant in Climate Compatible Growth at the Smith School of Enterprise and the Environment, where I remain an associate researcher. I hold additional affiliations with Oxford Net Zero and the Institute of New Economic Thinking at the Oxord Martin School.</description>
+      <description>he/him they/them     -- I am a first-year doctoral student at the University of Oxford&amp;rsquo;s Environmental Change Institute and a member of St Edmund Hall. Before starting my DPhil (which is Oxford-speak for PhD), I worked as a Research Assistant in Climate Compatible Growth at the Smith School of Enterprise and the Environment, where I remain an associate researcher. I hold additional affiliations with Oxford Net Zero and the Institute of New Economic Thinking at the Oxord Martin School.</description>
     </item>
     
     <item>
-      <title>Research</title>
-      <link>http://mathiasweidinger.github.io/research/</link>
-      <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://mathiasweidinger.github.io/research/</guid>
-      <description>Work in Progress  Bridging the Financing Gap: Exploring the Drivers of Clean Energy Project Bankability in Ghana with Theophilus Acheampong, Dennis Asare, Amprofi Agyemang, and Bridget Menyeh.
-  Abstract  Access to finance remains a major constraint for many firms despite the potential of Sub-Saharan Africa&amp;rsquo;s clean energy sector to the drive the continent&amp;rsquo;s energy transition and access goals. This paper investigates the key factors influencing the bankability of clean energy projects in Ghana using Partial Least Squares Structural Equation Modelling (PLS-SEM).</description>
-    </item>
-    
-    <item>
-      <title>Teaching</title>
+      <title>My teaching experience to date...</title>
       <link>http://mathiasweidinger.github.io/teaching/</link>
       <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>http://mathiasweidinger.github.io/teaching/</guid>
-      <description>  Trade and Economics (Summer 2024, Summer Spring Board) Statistics 2 (Spring 2022, ETH Zurich) Version Control: Git for Economists (2021, UNU-MERIT) Single Source Publishing of Quantitative Research (2021, UNU-MERIT)  </description>
+      <description>Graduate Teaching Assistant   Spring 2022: Statistics 2 (Postgraduate: MSc ETH STP)
+ core module for MSc Science, Technology, and Policy difference-in-difference methods, instrumental variable estimation, regression discontinuity designs, and randomized controlled trials    Spring 2021: Version Control: Git for Economists (Postgraduate: Dual Career PhD)
+ version control with git introduction to the terminal (unix shell)    Spring 2021: Single Source Publishing (Postgraduate: Dual Career PhD)</description>
+    </item>
+    
+    <item>
+      <title>Things I have worked on before...</title>
+      <link>http://mathiasweidinger.github.io/research/</link>
+      <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/research/</guid>
+      <description>Abstract  Access to finance remains a major constraint for many firms despite the potential of Sub-Saharan Africa&#39;s clean energy sector to the drive the continent&#39;s energy transition and access goals. This paper investigates the key factors influencing the bankability of clean energy projects in Ghana using Partial Least Squares Structural Equation Modelling (PLS-SEM). The study examines five latent variables: project readiness, financial structures, experienced project teams, risk mitigation, and alignment with Sustainable Development Goals (SDGS) and Environmental, Social, and Governance (ESG) criteria.</description>
     </item>
     
     <item>
@@ -71,6 +72,42 @@ I check my inbox and reply to emails 1-2 times a day, but sometimes life gets in
       
       <guid>http://mathiasweidinger.github.io/vita/</guid>
       <description>Short Bio  Mathias Weidinger is a full-time research assistant in climate compatible growth at the Smith School of Enterprise and the Environment, University of Oxford. He received his B.A. in european studies from the Maastricht University in 2018, an M.Sc. in public policy and human development jointly awarded by UNU-MERIT and Maastricht University in 2021, and a research M.Sc. in economics from Maastricht University in 2023. His research focuses on environmental and ressource economics, development economics, and inferential methods for spatial data.</description>
+    </item>
+    
+    <item>
+      <title>Bridging the Financing Gap: Exploring the Drivers of Clean Energy Project Bankability in Ghana</title>
+      <link>http://mathiasweidinger.github.io/current-project/2026-02-20_renewables_ghana/renewables_ghana/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/current-project/2026-02-20_renewables_ghana/renewables_ghana/</guid>
+      <description>(with Theophilus Acheampong, Dennis Asare, Amprofi Agyemang, and Bridget Menyeh)</description>
+    </item>
+    
+    <item>
+      <title>Choices Behind the Map: Spatial Data and Social Inference</title>
+      <link>http://mathiasweidinger.github.io/current-project/2026-02-20_deforestation_swb/deforestation_swb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/current-project/2026-02-20_deforestation_swb/deforestation_swb/</guid>
+      <description>(with Stephan Dietrich Stafford Nichols)</description>
+    </item>
+    
+    <item>
+      <title>Global Food Price Shocks and Pass-throughs in Climate Vulnerable Countries</title>
+      <link>http://mathiasweidinger.github.io/current-project/2026-02-20_pass_through/pass_through/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/current-project/2026-02-20_pass_through/pass_through/</guid>
+      <description>(with Fulvia Marotta and Jasper Verschuur)</description>
+    </item>
+    
+    <item>
+      <title>The Extensive Margin of India&#39;s Coal Problem</title>
+      <link>http://mathiasweidinger.github.io/current-project/2026-02-20_coal_india/coal_india/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/current-project/2026-02-20_coal_india/coal_india/</guid>
+      <description>(with Sam Fankhauser and Sugandha Srivastav)</description>
     </item>
     
   </channel>

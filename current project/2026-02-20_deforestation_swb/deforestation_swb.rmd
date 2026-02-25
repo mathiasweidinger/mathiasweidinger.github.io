@@ -1,0 +1,21 @@
+---
+title: "Choices Behind the Map: Spatial Data and Social Inference"
+summary: '(with Stephan Dietrich Stafford Nichols)'
+cover:
+  image: "https://voxdev.org/sites/default/files/styles/ct_banner_1905x440_/public/2025-10/biodiversity2.jpg?itok=9jgRFk1D"
+  alt: <alt text>
+  caption: <text>
+  relative: true
+  responsiveImages: true
+  linkFullImages: false
+
+ShowReadingTime: false
+slug: []
+categories: []
+tags: []
+draft: false
+---
+
+> with [Stephan Dietrich](https://unu.edu/merit/about/expert/dr-stephan-dietrich) and [Stafford Nichols](https://beaconecon.com/staff/stafford-nichols/)
+
+**Abstract:** Earth observation data has become an increasingly valuable resource for social scientists. However, when combining it with survey data, statistical inference is highly sensitive to a variety of methodological decisions that often go unexamined. Modifications to factors like spatial scale or temporal coverage can substantially alter conclusions, yet these details rarely discussed or even made explicit. To illustrate, we reduce freely available land cover grids to the interview locations reported by a panel survey to calculate household-level exposure to deforestation across ten African countries. We construct 108 slightly different deforestation metrics by varying spatial and temporal domains around each interview location and time, and imposing a threshold on the pixel-level forest cover difference that yields our deforestation indicator. Subsequently, we regress respondents' subjective well-being scores on these metrics. Although our models differ only in how the spatial data were processed, they seemingly support a wide range of conclusions. In a meta-analysis, we disentangle the informative model variation from noise to show the relative influence of each of the three parameters we varied and how consistent their influence is across models. In closing, we draw some lessons for using spatial data when modeling complex social outcomes.

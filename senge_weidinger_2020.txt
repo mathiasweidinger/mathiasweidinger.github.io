@@ -1,8 +1,0 @@
-@techreport{senge2020,
-  title = {{{MEP}}'s {{Receptiveness}} to {{Third Country Interests}} in the {{Framework}} of {{ACP-EU Parliamentary Diplomacy}}},
-  author = {Senge, Patricia and Weidinger, Mathias},
-  year = {2020},
-  pages = {1--28},
-  institution = {{NORTIA}},
-  langid = {english}
-}

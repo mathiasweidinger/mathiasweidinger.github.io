@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Current projects on Mathias Weidinger</title>
+    <link>http://mathiasweidinger.github.io/current-project/</link>
+    <description>Recent content in Current projects on Mathias Weidinger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://mathiasweidinger.github.io/current-project/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bridging the Financing Gap: Exploring the Drivers of Clean Energy Project Bankability in Ghana</title>
+      <link>http://mathiasweidinger.github.io/current-project/2026-02-20_renewables_ghana/renewables_ghana/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/current-project/2026-02-20_renewables_ghana/renewables_ghana/</guid>
+      <description>(with Theophilus Acheampong, Dennis Asare, Amprofi Agyemang, and Bridget Menyeh)</description>
+    </item>
+    
+    <item>
+      <title>Choices Behind the Map: Spatial Data and Social Inference</title>
+      <link>http://mathiasweidinger.github.io/current-project/2026-02-20_deforestation_swb/deforestation_swb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/current-project/2026-02-20_deforestation_swb/deforestation_swb/</guid>
+      <description>(with Stephan Dietrich Stafford Nichols)</description>
+    </item>
+    
+    <item>
+      <title>Global Food Price Shocks and Pass-throughs in Climate Vulnerable Countries</title>
+      <link>http://mathiasweidinger.github.io/current-project/2026-02-20_pass_through/pass_through/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/current-project/2026-02-20_pass_through/pass_through/</guid>
+      <description>(with Fulvia Marotta and Jasper Verschuur)</description>
+    </item>
+    
+    <item>
+      <title>The Extensive Margin of India&#39;s Coal Problem</title>
+      <link>http://mathiasweidinger.github.io/current-project/2026-02-20_coal_india/coal_india/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/current-project/2026-02-20_coal_india/coal_india/</guid>
+      <description>(with Sam Fankhauser and Sugandha Srivastav)</description>
+    </item>
+    
+  </channel>
+</rss>
