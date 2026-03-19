@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Mathias Weidinger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deleting temporary files from memory</title>
+      <link>http://mathiasweidinger.github.io/post/2026-03-19-deleting-temporary-files-from-memory/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/post/2026-03-19-deleting-temporary-files-from-memory/</guid>
+      <description>The contents of this post fall squarely within the category of things I&amp;rsquo;d forget if I didn&amp;rsquo;t write them down. Recently I found myself in a bit of a pickle. I had the task of computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.
+This can be done rather painlessly in R using the sf (simple features) and terra packages.</description>
+    </item>
+    
     <item>
       <title>Introducing WBqueryR</title>
       <link>http://mathiasweidinger.github.io/post/2022-11-01-introducing-wbqueryr/</link>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Programming on Mathias Weidinger</title>
+    <link>http://mathiasweidinger.github.io/tags/programming/</link>
+    <description>Recent content in Programming on Mathias Weidinger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://mathiasweidinger.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deleting temporary files from memory</title>
+      <link>http://mathiasweidinger.github.io/post/2026-03-19-deleting-temporary-files-from-memory/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>http://mathiasweidinger.github.io/post/2026-03-19-deleting-temporary-files-from-memory/</guid>
+      <description>The contents of this post fall squarely within the category of things I&amp;rsquo;d forget if I didn&amp;rsquo;t write them down. Recently I found myself in a bit of a pickle. I had the task of computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.
+This can be done rather painlessly in R using the sf (simple features) and terra packages.</description>
+    </item>
+    
+  </channel>
+</rss>
