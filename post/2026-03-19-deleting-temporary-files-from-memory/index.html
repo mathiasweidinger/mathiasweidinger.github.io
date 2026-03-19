@@ -7,8 +7,8 @@
 <meta name="robots" content="index, follow">
 <title>Deleting temporary files from memory | Mathias Weidinger</title>
 <meta name="keywords" content="R, Programming" />
-<meta name="description" content="The contents of this post fall squarely within the category of things I&rsquo;d forget if I didn&rsquo;t write them down. Recently I found myself in a bit of a pickle. I had the task of computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.
-This can be done rather painlessly in R using the sf (simple features) and terra packages.">
+<meta name="description" content="The contents of this post fall squarely within the category of things I&rsquo;d forget if I didn&rsquo;t write them down. Recently I found myself in a bit of a pickle. I was computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.
+This can be done rather painlessly in R using the sf (simple features) and terra packages. Still, with the amounts of data being processed, storage and RAM can run low.">
 <meta name="author" content="Mathias Weidinger">
 <link rel="canonical" href="http://mathiasweidinger.github.io/post/2026-03-19-deleting-temporary-files-from-memory/" />
 
@@ -63,8 +63,8 @@ This can be done rather painlessly in R using the sf (simple features) and terra
 
     </style>
 </noscript><meta property="og:title" content="Deleting temporary files from memory" />
-<meta property="og:description" content="The contents of this post fall squarely within the category of things I&rsquo;d forget if I didn&rsquo;t write them down. Recently I found myself in a bit of a pickle. I had the task of computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.
-This can be done rather painlessly in R using the sf (simple features) and terra packages." />
+<meta property="og:description" content="The contents of this post fall squarely within the category of things I&rsquo;d forget if I didn&rsquo;t write them down. Recently I found myself in a bit of a pickle. I was computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.
+This can be done rather painlessly in R using the sf (simple features) and terra packages. Still, with the amounts of data being processed, storage and RAM can run low." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://mathiasweidinger.github.io/post/2026-03-19-deleting-temporary-files-from-memory/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2026-03-19T00:00:00&#43;00:00" />
@@ -72,8 +72,8 @@ This can be done rather painlessly in R using the sf (simple features) and terra
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Deleting temporary files from memory"/>
-<meta name="twitter:description" content="The contents of this post fall squarely within the category of things I&rsquo;d forget if I didn&rsquo;t write them down. Recently I found myself in a bit of a pickle. I had the task of computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.
-This can be done rather painlessly in R using the sf (simple features) and terra packages."/>
+<meta name="twitter:description" content="The contents of this post fall squarely within the category of things I&rsquo;d forget if I didn&rsquo;t write them down. Recently I found myself in a bit of a pickle. I was computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.
+This can be done rather painlessly in R using the sf (simple features) and terra packages. Still, with the amounts of data being processed, storage and RAM can run low."/>
 
 
 <script type="application/ld+json">
@@ -102,12 +102,12 @@ This can be done rather painlessly in R using the sf (simple features) and terra
   "@type": "BlogPosting",
   "headline": "Deleting temporary files from memory",
   "name": "Deleting temporary files from memory",
-  "description": "The contents of this post fall squarely within the category of things I\u0026rsquo;d forget if I didn\u0026rsquo;t write them down. Recently I found myself in a bit of a pickle. I had the task of computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.\nThis can be done rather painlessly in R using the sf (simple features) and terra packages.",
+  "description": "The contents of this post fall squarely within the category of things I\u0026rsquo;d forget if I didn\u0026rsquo;t write them down. Recently I found myself in a bit of a pickle. I was computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.\nThis can be done rather painlessly in R using the sf (simple features) and terra packages. Still, with the amounts of data being processed, storage and RAM can run low.",
   "keywords": [
     "R", "Programming"
   ],
-  "articleBody": "The contents of this post fall squarely within the category of things I’d forget if I didn’t write them down. Recently I found myself in a bit of a pickle. I had the task of computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.\nThis can be done rather painlessly in R using the sf (simple features) and terra packages. Still, with the amounts of data being processed, storage and RAM can run low. I took care not to load big chunks of data at once to address the storage bottle neck, and did anything I could using terra functions that run C++ under the hood, to save RAM. This worked really well, and soon I had pretty maps of monthly coal pollution exposure like this one for March 2020.\nCuriously, though, I could only run the script exactly once before it filled up all the free space left on my 250GB SSD. I had assumed that temporary files are forgotten as a result of the fabulously named gc (garbage collect) command. Not so. Then, surely, if I were to close my current R session temporarrrrry files would be unlinked…right? Again, no. The only way I knew of to free up the drive and make my computer - never mind R at this point - functional again was every tech support service worker’s favourite word: restart.\nThankfully, after a bit of digging, I learned a better way to do this from within an active R session, thus leading us to the code snippet that ends this rant.\nold ",
-  "wordCount" : "297",
+  "articleBody": "The contents of this post fall squarely within the category of things I’d forget if I didn’t write them down. Recently I found myself in a bit of a pickle. I was computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.\nThis can be done rather painlessly in R using the sf (simple features) and terra packages. Still, with the amounts of data being processed, storage and RAM can run low. I took care not to load big chunks of data at once to address the storage bottle neck, and heavily relied on terra functions that run C++ under the hood to save RAM. Soon I had pretty maps of monthly coal pollution exposure like this one for March 2020.\nCuriously, though, I could only run the script exactly once before it filled up all the free space left on my 250GB SSD. I had assumed that temporary files are forgotten as a result of the fabulously named gc (garbage collect) command. Not so. Then, surely, if I were to close my current R session temporarrrrry files would be unlinked…right? Again, no. The only way I knew of to free up the drive and make my computer - never mind R at this point - functional again was every tech support service worker’s favourite word: restart.\nThankfully, after a bit of digging, I learned a better way to do this from within an active R session, thus leading us to the code snippet that ends this rant.\nold ",
+  "wordCount" : "287",
   "inLanguage": "en",
   "datePublished": "2026-03-19T00:00:00Z",
   "dateModified": "2026-03-19T00:00:00Z",
@@ -222,9 +222,9 @@ This can be done rather painlessly in R using the sf (simple features) and terra
 </div>
   </header> 
 
-  <div class="post-content"><p>The contents of this post fall squarely within the category of things I&rsquo;d forget if I didn&rsquo;t write them down. Recently I found myself in a bit of a pickle. I had the task of computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.</p>
-<p>This can be done rather painlessly in R using the <a href="https://cran.r-project.org/web/packages/sf/index.html"><code>sf</code></a> (simple features) and <a href="https://cran.r-project.org/web/packages/terra/index.html"><code>terra</code></a> packages. Still, with the amounts of data being processed, storage and RAM can run low. I took care not to load big chunks of data at once to address the storage bottle neck, and did anything I could using <code>terra</code> functions that run <a href="https://isocpp.org/">C++</a> under the hood, to save RAM. This worked really well, and soon I had pretty maps of monthly coal pollution exposure like this one for March 2020.</p>
-<p><img loading="lazy" src="" alt=""  />
+  <div class="post-content"><p>The contents of this post fall squarely within the category of things I&rsquo;d forget if I didn&rsquo;t write them down. Recently I found myself in a bit of a pickle. I was computing 144 months worth of exposure to pollution from coal-fired power plants for every single 10 square-km pixel over land in India.</p>
+<p>This can be done rather painlessly in R using the <a href="https://cran.r-project.org/web/packages/sf/index.html"><code>sf</code></a> (simple features) and <a href="https://cran.r-project.org/web/packages/terra/index.html"><code>terra</code></a> packages. Still, with the amounts of data being processed, storage and RAM can run low. I took care not to load big chunks of data at once to address the storage bottle neck, and heavily relied on <code>terra</code> functions that run <a href="https://isocpp.org/">C++</a> under the hood to save RAM. Soon I had pretty maps of monthly coal pollution exposure like this one for March 2020.</p>
+<p><img loading="lazy" src="map_march2020.png" alt="Exposure to coal pollution in India, March 2020."  />
 </p>
 <p>Curiously, though, I could only run the script exactly once before it filled up all the free space left on my 250GB SSD. I had assumed that temporary files are forgotten as a result of the fabulously named <code>gc</code> (garbage collect) command. Not so. Then, surely, if I were to close my current R session <em>temporarrrrry</em> files would be unlinked&hellip;right? Again, no. The only way I knew of to free up the drive and make my computer - never mind R at this point - functional again was every tech support service worker&rsquo;s favourite word: restart.</p>
 <p>Thankfully, after a bit of digging, I learned a better way to do this from within an active R session, thus leading us to the code snippet that ends this rant.</p>
